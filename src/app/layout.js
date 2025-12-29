@@ -10,8 +10,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className="bg-d-background">
-      <body className={`bg-white ${openSans.className} antialiased`}>
+    <html lang="es">
+      <body
+        className={`bg-surface text-foreground ${openSans.className} antialiased`}
+      >
         <Header />
         {children}
         <Footer />

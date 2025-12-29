@@ -3,9 +3,9 @@ import { poppins } from "@/lib/fonts";
 export default function Logo({
   on = "light",
   className = "",
-  imgWidth = "w-12",
-  textSize = "text-3xl",
-  gap = "gap-3",
+  imgWidth = "w-10",
+  textSize = "text-2xl",
+  gap = "gap-1",
 }) {
   const textClass = on === "light" ? "text-black" : "text-white";
 

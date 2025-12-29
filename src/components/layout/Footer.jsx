@@ -8,7 +8,13 @@ export default function Footer() {
       <div className="space-y-10 px-4 py-12 sm:mx-auto sm:grid sm:max-w-3xl sm:grid-cols-2 sm:gap-10 sm:space-y-0 sm:px-6 sm:py-16 lg:max-w-5xl lg:grid-cols-3 lg:gap-12 lg:px-8 lg:py-20">
         <section className="sm:col-span-2 lg:col-span-1 lg:mx-auto">
           <Link href="/" aria-label="Ir a la página principal">
-            <Logo on="dark" className="mb-4" />
+            <Logo
+              on="dark"
+              className="mb-4"
+              imgWidth="w-12"
+              textSize="text-3xl"
+              gap="gap-3"
+            />
           </Link>
           <p>Directorio de foros y comunidades online en español.</p>
         </section>
