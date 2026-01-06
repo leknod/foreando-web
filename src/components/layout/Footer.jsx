@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-surface-dark text-muted-dark">
-      <div className="space-y-10 px-4 py-12 sm:mx-auto sm:grid sm:max-w-3xl sm:grid-cols-2 sm:gap-10 sm:space-y-0 sm:px-6 sm:py-16 lg:max-w-5xl lg:grid-cols-3 lg:gap-12 lg:px-8 lg:py-20">
+      <div className="max-w-6xl space-y-10 px-4 py-12 sm:grid sm:grid-cols-2 sm:gap-10 sm:space-y-0 sm:px-6 sm:py-16 lg:mx-auto lg:grid-cols-4 lg:gap-12 lg:px-10 lg:py-20">
         <section className="sm:col-span-2 lg:col-span-1 lg:mx-auto">
           <Link href="/" aria-label="Ir a la página principal">
             <Logo
@@ -34,6 +34,29 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#">Link 3</a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+        <section className="lg:mx-auto">
+          <h2
+            className={`text-foreground-dark mb-4 inline-block border-b pb-0.5 font-bold ${poppins.className} antialiased`}
+          >
+            Sobre nosotros
+          </h2>
+          <nav aria-label="Enlaces destacados">
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a href="#">Listar foro</a>
+              </li>
+              <li>
+                <a href="#">Publicitarse</a>
+              </li>
+              <li>
+                <a href="#">Quienes somos</a>
+              </li>
+              <li>
+                <a href="#">Contacto</a>
               </li>
             </ul>
           </nav>

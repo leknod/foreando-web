@@ -1,20 +1,10 @@
-import { poppins } from "@/lib/fonts";
+import Hero from "@/components/layout/Hero";
 
 export default function Home() {
   return (
-    <>
-      <header className="mx-auto max-w-4xl px-4 py-16 sm:py-20">
-        <h1
-          className={`text-foreground ${poppins.className} mb-4 text-center text-3xl font-extrabold tracking-tight antialiased md:text-4xl`}
-        >
-          Directorio de foros en español
-        </h1>
-        <p
-          className={`text-muted ${poppins.className} text-center text-xl antialiased`}
-        >
-          Descubre y accede a foros y comunidades online en español.
-        </p>
-      </header>
-    </>
+    <Hero
+      title="Directorio de foros en español"
+      subtitle="Descubre y accede a foros y comunidades online en español"
+    />
   );
 }

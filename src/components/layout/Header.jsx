@@ -15,15 +15,15 @@ export default function Header() {
       <header
         className={`shadow-primary/10 px-6 py-4 shadow-md md:py-5 ${poppins.className} antialiased`}
       >
-        <div className="mx-auto flex items-center justify-between md:max-w-5xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between">
           <Link href="/" aria-label="Ir a la página principal">
             <Logo />
           </Link>
           <div className="hidden font-semibold md:block">
             <nav>
-              <ul className="flex gap-6">
+              <ul className="flex gap-10">
                 <li>
-                  <a href="#">Lista completa</a>
+                  <Link href="/foros">Lista completa</Link>
                 </li>
                 <li>
                   <a href="#">Categorías</a>

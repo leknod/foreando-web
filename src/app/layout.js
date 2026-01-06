@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         className={`bg-surface text-foreground ${openSans.className} antialiased`}
       >
         <Header />
-        {children}
+        <main className="mx-auto max-w-6xl py-10">{children}</main>
         <Footer />
       </body>
     </html>
