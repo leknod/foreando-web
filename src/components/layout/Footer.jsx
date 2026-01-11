@@ -1,92 +1,111 @@
+import Link from "next/link";
 import Logo from "../brand/Logo";
 import { poppins } from "@/lib/fonts";
-import Link from "next/link";
+
+const footerLinks = {
+  destacado: [
+    { label: "Foros populares", href: "#" },
+    { label: "Nuevas comunidades", href: "#" },
+    { label: "Categorías", href: "#" },
+    { label: "Tendencias", href: "#" },
+  ],
+  sobreNosotros: [
+    { label: "Listar foro", href: "#" },
+    { label: "Publicitarse", href: "#" },
+    { label: "Quiénes somos", href: "#" },
+    { label: "Contacto", href: "#" },
+  ],
+  legal: [
+    { label: "Aviso Legal", href: "#" },
+    { label: "Política de privacidad", href: "#" },
+    { label: "Política de cookies", href: "#" },
+    { label: "Términos de uso", href: "#" },
+  ],
+};
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-dark text-muted-dark">
-      <div className="max-w-6xl space-y-10 px-4 py-12 sm:grid sm:grid-cols-2 sm:gap-10 sm:space-y-0 sm:px-6 sm:py-16 lg:mx-auto lg:grid-cols-4 lg:gap-12 lg:px-10 lg:py-20">
-        <section className="sm:col-span-2 lg:col-span-1 lg:mx-auto">
-          <Link href="/" aria-label="Ir a la página principal">
-            <Logo
-              on="dark"
-              className="mb-4"
-              imgWidth="w-12"
-              textSize="text-3xl"
-              gap="gap-3"
-            />
-          </Link>
-          <p>Directorio de foros y comunidades online en español.</p>
-        </section>
-        <section className="lg:mx-auto">
-          <h2
-            className={`text-foreground-dark mb-4 inline-block border-b pb-0.5 font-bold ${poppins.className} antialiased`}
-          >
-            Destacado
-          </h2>
-          <nav aria-label="Enlaces destacados">
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href="#">Link 1</a>
-              </li>
-              <li>
-                <a href="#">Link 2</a>
-              </li>
-              <li>
-                <a href="#">Link 3</a>
-              </li>
+    <footer className="bg-surface-dark text-white">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <Logo on="dark" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
+              Directorio de foros y comunidades online en español. Encuentra tu
+              comunidad ideal y conecta con personas que comparten tus
+              intereses.
+            </p>
+          </div>
+          <div>
+            <h3
+              className={`mb-4 text-sm font-semibold ${poppins.className} tracking-wider text-white uppercase`}
+            >
+              Destacado
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.destacado.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary text-sm text-gray-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </nav>
-        </section>
-        <section className="lg:mx-auto">
-          <h2
-            className={`text-foreground-dark mb-4 inline-block border-b pb-0.5 font-bold ${poppins.className} antialiased`}
-          >
-            Sobre nosotros
-          </h2>
-          <nav aria-label="Enlaces destacados">
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href="#">Listar foro</a>
-              </li>
-              <li>
-                <a href="#">Publicitarse</a>
-              </li>
-              <li>
-                <a href="#">Quienes somos</a>
-              </li>
-              <li>
-                <a href="#">Contacto</a>
-              </li>
+          </div>
+
+          <div>
+            <h3
+              className={`mb-4 text-sm font-semibold ${poppins.className} tracking-wider text-white uppercase`}
+            >
+              Sobre nosotros
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.sobreNosotros.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary text-sm text-gray-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </nav>
-        </section>
-        <section className="lg:mx-auto">
-          <h2
-            className={`text-foreground-dark mb-4 inline-block border-b pb-0.5 font-bold ${poppins.className} antialiased`}
-          >
-            Legal
-          </h2>
-          <nav aria-label="Enlaces destacados">
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href="#">Aviso Legal</a>
-              </li>
-              <li>
-                <a href="#">Política de privacidad</a>
-              </li>
-              <li>
-                <a href="#">Política de cookies</a>
-              </li>
+          </div>
+
+          <div>
+            <h3
+              className={`mb-4 text-sm font-semibold ${poppins.className} tracking-wider text-white uppercase`}
+            >
+              Legal
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary text-sm text-gray-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </nav>
-        </section>
-      </div>
-      <div className="mx-auto h-px w-2/3 max-w-5xl bg-neutral-500/40"></div>
-      <div className="py-6">
-        <p className="text-center text-sm">
-          &copy;2025 Foreando. Todos los derechos reservados.
-        </p>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Foreando. Todos los derechos
+            reservados.
+          </p>
+          <span className="flex items-center gap-1.5 text-xs text-gray-500">
+            Hecho con <span className="text-red-500">♥</span> por Leknod
+          </span>
+        </div>
       </div>
     </footer>
   );

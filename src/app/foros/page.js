@@ -1,4 +1,4 @@
-import ForumCard from "@/components/ForumCard";
+import ForumCard from "@/components/layout/ForumCard";
 import Hero from "@/components/layout/Hero";
 import { supabase } from "@/lib/supabase";
 

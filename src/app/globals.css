@@ -2,13 +2,13 @@
 
 @theme {
   --color-surface: #fafafa;
-  --color-surface-dark: #16161a;
+  --color-surface-dark: #0f1419;
 
   --color-foreground: #222222;
   --color-muted: #5a5b63;
-  --color-foreground-dark: #fffffe;
-  --color-muted-dark: #c7c9d1;
+  --color-foreground-dark: #ffffff;
+  --color-muted-dark: #99a1af;
 
-  --color-primary: #1d3a8a;
+  --color-primary: #3b82f6;
   --color-primary-soft: #dce7ff;
 }

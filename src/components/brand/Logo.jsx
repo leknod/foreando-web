@@ -5,7 +5,7 @@ export default function Logo({
   className = "",
   imgWidth = "w-10",
   textSize = "text-2xl",
-  gap = "gap-1",
+  gap = "gap-3",
 }) {
   const textClass = on === "light" ? "text-black" : "text-white";
 
@@ -13,7 +13,7 @@ export default function Logo({
     <div className={`flex items-center ${gap} ${className}`}>
       <img src="logo.svg" alt="Foreando" className={`${imgWidth}`} />
       <span
-        className={`${textSize} font-medium tracking-tight ${textClass} ${poppins.className}`}
+        className={`${textSize} font-bold tracking-tight ${textClass} ${poppins.className}`}
       >
         foreando
       </span>

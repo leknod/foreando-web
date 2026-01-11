@@ -1,48 +1,55 @@
 import CloseIcon from "../icons/CloseIcon";
-import { motion } from "motion/react";
+import Logo from "../brand/Logo";
+import Link from "next/link";
 
-export default function MobileMenu({ onClose }) {
+export default function MobileMenu({ isOpen, onClose, navLinks }) {
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        className="bg-surface-dark/50 fixed inset-0 z-40"
+      <div
+        className={`fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
         onClick={onClose}
       />
-      <motion.aside
-        initial={{ x: "100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "100%" }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="bg-surface fixed top-0 right-0 z-50 flex h-dvh w-4/5 flex-col gap-20 px-14 py-10 font-semibold"
+
+      <div
+        className={`fixed top-0 right-0 z-50 flex h-full w-[80%] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <div className="flex justify-end">
-          <button className="cursor-pointer" onClick={onClose}>
+        <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
+          <Logo onClick={onClose} />
+          <button
+            onClick={onClose}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100"
+            aria-label="Cerrar menú"
+          >
             <CloseIcon />
           </button>
         </div>
-        <nav>
-          <ul className="space-y-6">
-            <li>
-              <a href="#">Lista completa</a>
-            </li>
-            <li>
-              <a href="#">Categorías</a>
-            </li>
-          </ul>
+
+        <nav className="flex flex-1 flex-col p-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="border-b border-gray-100 py-4 text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
+              onClick={onClose}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
-        <div className="mt-auto flex justify-center">
+
+        <div className="border-t border-gray-200 p-6">
           <a
-            className="bg-primary text-foreground-dark hover:bg-primary/90 rounded-lg px-4 py-2"
             href="#"
+            className="bg-primary flex w-full items-center justify-center rounded-lg py-4 text-base font-medium text-white transition-colors hover:bg-[#2563eb]"
           >
             Listar foro
           </a>
         </div>
-      </motion.aside>
+      </div>
     </>
   );
 }

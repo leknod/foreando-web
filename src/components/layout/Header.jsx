@@ -1,55 +1,72 @@
 "use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import Logo from "../brand/Logo";
 import MenuIcon from "../icons/MenuIcon";
-import { poppins } from "@/lib/fonts";
-import { useState } from "react";
 import MobileMenu from "./MobileMenu";
-import Link from "next/link";
-import { AnimatePresence } from "motion/react";
+import { poppins } from "@/lib/fonts";
+
+const navLinks = [
+  { label: "Lista completa", href: "#" },
+  { label: "Categorías", href: "#" },
+];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
       <header
-        className={`shadow-primary/10 px-6 py-4 shadow-md md:py-5 ${poppins.className} antialiased`}
+        className={`${poppins.className} sticky top-0 z-50 w-full bg-white antialiased shadow-[0_4px_20px_rgba(0,0,0,0.08)]`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <Link href="/" aria-label="Ir a la página principal">
-            <Logo />
-          </Link>
-          <div className="hidden font-semibold md:block">
-            <nav>
-              <ul className="flex gap-10">
-                <li>
-                  <Link href="/foros">Lista completa</Link>
-                </li>
-                <li>
-                  <a href="#">Categorías</a>
-                </li>
-                <li>
-                  <a
-                    className="bg-primary text-foreground-dark hover:bg-primary/90 rounded-lg px-4 py-2"
-                    href="#"
-                  >
-                    Listar foro
-                  </a>
-                </li>
-              </ul>
-            </nav>
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+          <Logo imgWidth="w-8" textSize="text-xl" />
+          <nav className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="hidden md:block">
+            <a
+              href="#"
+              className="bg-primary inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2563eb]"
+            >
+              Listar foro
+            </a>
           </div>
           <button
-            className="cursor-pointer md:hidden"
             onClick={() => setIsMenuOpen(true)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100 md:hidden"
+            aria-label="Abrir menú"
           >
             <MenuIcon />
           </button>
         </div>
       </header>
-      <AnimatePresence>
-        {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
-      </AnimatePresence>
+
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        navLinks={navLinks}
+      />
     </>
   );
 }
