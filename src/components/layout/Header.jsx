@@ -8,8 +8,8 @@ import MobileMenu from "./MobileMenu";
 import { poppins } from "@/lib/fonts";
 
 const navLinks = [
-  { label: "Lista completa", href: "#" },
-  { label: "Categorías", href: "#" },
+  { label: "Lista completa", href: "/foros" },
+  { label: "Categorías", href: "/categorias" },
 ];
 
 export default function Header() {
@@ -29,10 +29,12 @@ export default function Header() {
   return (
     <>
       <header
-        className={`${poppins.className} sticky top-0 z-50 w-full bg-white antialiased shadow-[0_4px_20px_rgba(0,0,0,0.08)]`}
+        className={`${poppins.className} sticky top-0 z-50 w-full bg-white antialiased shadow-[0_4px_20px_rgba(59,130,246,0.25)]`}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Logo imgWidth="w-8" textSize="text-xl" />
+          <Link href={"/"}>
+            <Logo />
+          </Link>
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <Link
