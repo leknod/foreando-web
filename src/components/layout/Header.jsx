@@ -47,12 +47,12 @@ export default function Header() {
             ))}
           </nav>
           <div className="hidden md:block">
-            <a
-              href="#"
+            <Link
+              href={"/listar-foro"}
               className="bg-primary inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2563eb]"
             >
               Listar foro
-            </a>
+            </Link>
           </div>
           <button
             onClick={() => setIsMenuOpen(true)}

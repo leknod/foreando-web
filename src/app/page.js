@@ -1,6 +1,34 @@
+import Link from "next/link";
 import FeaturedSection from "@/components/layout/FeaturedSection";
+import CategoryCard from "@/components/layout/CategoryCard";
+import { supabase } from "@/lib/supabase";
+import { Check, TrendingUp, Users, Zap } from "lucide-react";
 
-export default function Home() {
+export default async function Home() {
+  const { data: categories, error } = await supabase
+    .from("categories")
+    .select("id, name, slug, forums:forums(count)");
+
+  const categoriesWithForums = await Promise.all(
+    categories.map(async (category) => {
+      const { data: forums } = await supabase
+        .from("forums")
+        .select("id, name, slug, icon")
+        .eq("category_id", category.id)
+        .limit(10);
+
+      return {
+        ...category,
+        forums,
+        forumCount: category.forums[0].count,
+      };
+    }),
+  );
+
+  const topCategories = categoriesWithForums
+    .sort((a, b) => b.forumCount - a.forumCount)
+    .slice(0, 4);
+
   return (
     <>
       <section className="relative overflow-hidden bg-linear-to-b from-slate-50 via-blue-50 to-slate-200">
@@ -81,11 +109,144 @@ export default function Home() {
               Ver categorías
             </a>
           </div>
-
-          {/* Stats */}
         </div>
       </section>
       <FeaturedSection />
+      <div className="relative overflow-hidden">
+        {/* Línea central con lineare */}
+        <div className="flex items-center justify-center gap-4">
+          {/* Línea izquierda */}
+          <div className="h-px max-w-xs flex-1 bg-linear-to-r from-transparent via-slate-300 to-slate-300" />
+
+          {/* Elemento decorativo central */}
+          <span className="text-sm font-bold text-pretty text-gray-400 uppercase">
+            Principales categorías
+          </span>
+
+          {/* Línea derecha */}
+          <div className="h-px max-w-xs flex-1 bg-linear-to-l from-transparent via-slate-300 to-slate-300" />
+        </div>
+      </div>
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {topCategories.map((category) => (
+          <CategoryCard key={category.id} category={category} />
+        ))}
+      </div>
+      <div className="flex justify-center pb-20">
+        <Link
+          href="/categorias"
+          className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-3 shadow-sm ring-1 shadow-blue-100 ring-blue-200 transition-all hover:shadow-blue-500/20"
+        >
+          <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-sm font-semibold text-transparent group-hover:from-blue-600 group-hover:to-indigo-600">
+            Ver todas las categorías
+          </span>
+          <svg
+            className="h-4 w-4 text-gray-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-blue-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </Link>
+      </div>
+      <section className="relative w-full bg-gradient-to-b from-slate-100 to-slate-200 py-20">
+        {/* Decorative Elements */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 h-64 w-64 rounded-full bg-blue-300 opacity-10 blur-3xl" />
+          <div className="absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-blue-400 opacity-10 blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4">
+          {/* Header */}
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
+              ¿Tienes un foro?{" "}
+              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                Únete a nosotros
+              </span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-600">
+              Aumenta la visibilidad de tu comunidad y conecta con miles de
+              usuarios hispanohablantes
+            </p>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="mb-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col items-center text-center">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                <TrendingUp className="h-7 w-7 text-blue-600" />
+              </div>
+              <h3 className="mb-1 font-semibold text-slate-900">
+                Más visibilidad
+              </h3>
+              <p className="text-sm text-slate-600">
+                Aparece en búsquedas y categorías relevantes
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                <Users className="h-7 w-7 text-blue-600" />
+              </div>
+              <h3 className="mb-1 font-semibold text-slate-900">
+                Nuevos usuarios
+              </h3>
+              <p className="text-sm text-slate-600">
+                Atrae miembros activos interesados en tu temática
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                <Zap className="h-7 w-7 text-blue-600" />
+              </div>
+              <h3 className="mb-1 font-semibold text-slate-900">
+                Rápido y fácil
+              </h3>
+              <p className="text-sm text-slate-600">
+                Proceso de alta simple en menos de 2 minutos
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                <Check className="h-7 w-7 text-blue-600" />
+              </div>
+              <h3 className="mb-1 font-semibold text-slate-900">100% Gratis</h3>
+              <p className="text-sm text-slate-600">
+                Listado básico gratuito, sin costes ocultos
+              </p>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center">
+            <Link
+              href="/listar-foro"
+              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/40"
+            >
+              <Zap className="h-5 w-5" />
+              Listar mi foro ahora
+            </Link>
+            <p className="mt-4 text-sm text-slate-500">
+              ¿Quieres destacar aún más?{" "}
+              <Link
+                href="/planes"
+                className="text-blue-600 underline hover:text-blue-700"
+              >
+                Conoce nuestros planes premium
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
