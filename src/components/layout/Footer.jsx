@@ -4,14 +4,12 @@ import { poppins } from "@/lib/fonts";
 
 const footerLinks = {
   destacado: [
-    { label: "Foros populares", href: "#" },
-    { label: "Nuevas comunidades", href: "#" },
-    { label: "Categorías", href: "#" },
-    { label: "Tendencias", href: "#" },
+    { label: "Todos los foros", href: "/foros" },
+    { label: "Categorías", href: "/categorias" },
   ],
   sobreNosotros: [
-    { label: "Listar foro", href: "#" },
-    { label: "Publicitarse", href: "#" },
+    { label: "Listar foro", href: "/listar-foro" },
+    //{label: "Publicitarse", href: "#" },
     { label: "Quiénes somos", href: "#" },
     { label: "Contacto", href: "#" },
   ],
@@ -29,7 +27,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <Logo imgWidth="10" textSize="text-2xl" on="dark" />
+            <Logo imgWidth="w-10" textSize="text-2xl" on="dark" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
               Directorio de foros y comunidades online en español. Encuentra tu
               comunidad ideal y conecta con personas que comparten tus

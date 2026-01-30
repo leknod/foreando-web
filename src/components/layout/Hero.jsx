@@ -1,9 +1,9 @@
+import { poppins } from "@/lib/fonts";
+
 export default function Hero({ title, subtitle }) {
   return (
     <section className="relative overflow-hidden bg-linear-to-b from-slate-50 via-blue-50 to-slate-200">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.4]"
           style={{
@@ -12,14 +12,14 @@ export default function Hero({ title, subtitle }) {
           }}
         />
 
-        {/* Soft gradient orbs */}
         <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-blue-100/50 blur-3xl" />
         <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-indigo-100/40 blur-3xl" />
       </div>
 
-      {/* Content */}
       <div className="relative mx-auto max-w-5xl px-6 py-16 text-center sm:py-20">
-        <h1 className="text-3xl font-bold tracking-tight text-balance text-gray-900 sm:text-4xl lg:text-5xl">
+        <h1
+          className={`${poppins.className} text-3xl font-bold tracking-tight text-balance text-gray-900 antialiased sm:text-4xl lg:text-5xl`}
+        >
           {title}
         </h1>
 
@@ -29,7 +29,6 @@ export default function Hero({ title, subtitle }) {
           </p>
         )}
 
-        {/* Decorative line */}
         <div className="mx-auto mt-8 flex items-center justify-center gap-4">
           <span className="h-px w-20 bg-linear-to-r from-transparent to-gray-300" />
           <div className="flex items-center gap-2">

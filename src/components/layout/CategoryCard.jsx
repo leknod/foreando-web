@@ -4,7 +4,7 @@ export default function CategoryCard({ category }) {
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       {/* Header */}
-      <Link href={`/categoria/${category.slug}`}>
+      <Link href={`/categorias/${category.slug}`}>
         <div className="relative flex items-center justify-center gap-2 px-3 py-3">
           <span className="text-slate-600">
             {/*categoryIcon || <MessageSquare className="h-5 w-5" />*/}
@@ -42,7 +42,7 @@ export default function CategoryCard({ category }) {
 
       {/* Footer */}
       <Link
-        href={`/categoria/${category.slug}`}
+        href={`/categorias/${category.slug}`}
         className="flex items-center justify-center gap-1 border-t border-slate-200 bg-slate-50 px-3 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600"
       >
         Ver toda la categoría →

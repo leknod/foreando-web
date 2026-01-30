@@ -1,4 +1,4 @@
-import CloseIcon from "../icons/CloseIcon";
+import { X } from "lucide-react";
 import Logo from "../brand/Logo";
 import Link from "next/link";
 
@@ -24,7 +24,7 @@ export default function MobileMenu({ isOpen, onClose, navLinks }) {
             className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100"
             aria-label="Cerrar menú"
           >
-            <CloseIcon />
+            <X />
           </button>
         </div>
 

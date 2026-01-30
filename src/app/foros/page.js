@@ -1,9 +1,7 @@
 import ForumCard from "@/components/layout/ForumCard";
-import FeaturedForumCard from "@/components/layout/FeaturedForumCard";
 import Hero from "@/components/layout/Hero";
 import { supabase } from "@/lib/supabase";
 import FeaturedSection from "@/components/layout/FeaturedSection";
-import SectionDivider from "@/components/layout/SectionDivider";
 import { FilterBar } from "@/components/layout/FilterBar";
 
 export default async function Page() {

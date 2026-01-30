@@ -2,7 +2,6 @@ import CategoryCard from "@/components/layout/CategoryCard";
 import FeaturedSection from "@/components/layout/FeaturedSection";
 import Hero from "@/components/layout/Hero";
 import { SearchBar } from "@/components/layout/SearchBar";
-import SectionDivider from "@/components/layout/SectionDivider";
 import { supabase } from "@/lib/supabase";
 
 export default async function Page() {

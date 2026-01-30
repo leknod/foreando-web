@@ -1,4 +1,4 @@
-import { Open_Sans, Poppins, Geist } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 
 export const openSans = Open_Sans({
   subsets: ["latin"],
@@ -8,10 +8,5 @@ export const openSans = Open_Sans({
 export const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-export const geist = Geist({
-  subsets: ["latin"],
   display: "swap",
 });

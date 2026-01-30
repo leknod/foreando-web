@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "../brand/Logo";
-import MenuIcon from "../icons/MenuIcon";
 import MobileMenu from "./MobileMenu";
 import { poppins } from "@/lib/fonts";
+import { Menu } from "lucide-react";
 
 const navLinks = [
   { label: "Lista completa", href: "/foros" },
@@ -49,7 +49,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href={"/listar-foro"}
-              className="bg-primary inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2563eb]"
+              className="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2563eb]"
             >
               Listar foro
             </Link>
@@ -59,7 +59,7 @@ export default function Header() {
             className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100 md:hidden"
             aria-label="Abrir menú"
           >
-            <MenuIcon />
+            <Menu />
           </button>
         </div>
       </header>
