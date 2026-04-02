@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "../brand/Logo";
 import { poppins } from "@/lib/fonts";
+import MadeBy from "./MadeBy";
 
 const footerLinks = {
   destacado: [
@@ -99,9 +100,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Foreando. Todos los derechos
             reservados.
           </p>
-          <span className="flex items-center gap-1.5 text-xs text-gray-500">
-            Hecho con <span className="text-red-500">♥</span> por Leknod
-          </span>
+          <MadeBy />
         </div>
       </div>
     </footer>

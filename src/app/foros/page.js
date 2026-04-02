@@ -14,7 +14,8 @@ export default async function Page() {
   const { data: forums, error } = await supabase
     .from("forums")
     .select("id, name, short_description, url, icon")
-    .eq("featured", false);
+    .eq("featured", false)
+    .order("sort_order");
 
   if (error) {
     return <p>Error cargando foros</p>;

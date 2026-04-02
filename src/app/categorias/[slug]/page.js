@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
 
   const { data } = await supabase
     .from("categories")
-    .select("name")
+    .select("name, description")
     .eq("slug", slug)
     .limit(1);
 
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }) {
   if (!category) return { title: "Categoría no encontrada" };
 
   return {
-    title: category.name,
-    description: `Foros y comunidades de ${category.name.toLowerCase()} en español.`,
+    title: `Foros de ${category.name.toLowerCase()}`,
+    description: category.description,
   };
 }
 
@@ -63,7 +63,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <Hero title={category.name} />
+      <Hero title={category.name} subtitle={category.description} />
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {forums.map((forum, index) => (
           <ForumCard key={forum.id} forum={forum} index={index} />
