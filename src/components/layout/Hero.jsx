@@ -1,6 +1,6 @@
 import { poppins } from "@/lib/fonts";
 
-export default function Hero({ title, subtitle }) {
+export default function Hero({ title, subtitle, icon }) {
   return (
     <section className="relative overflow-hidden bg-linear-to-b from-slate-50 via-blue-50 to-slate-200">
       <div className="absolute inset-0 overflow-hidden">
@@ -17,6 +17,14 @@ export default function Hero({ title, subtitle }) {
       </div>
 
       <div className="relative mx-auto max-w-5xl px-6 py-16 text-center sm:py-20">
+        {icon && (
+          <div className="mb-6 flex justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
+              <span className="text-blue-600">{icon}</span>
+            </div>
+          </div>
+        )}
+
         <h1
           className={`${poppins.className} text-3xl font-bold tracking-tight text-balance text-gray-900 antialiased sm:text-4xl lg:text-5xl`}
         >
