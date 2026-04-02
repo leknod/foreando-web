@@ -36,17 +36,18 @@ export function FilterBar() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <div className="flex flex-col gap-3 md:flex-row">
-        {/* Search Bar */}
         <div className="relative flex-1">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-            <Search className="h-5 w-5 text-slate-400" />
-          </div>
+          {!searchQuery && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <Search className="mr-2 h-5 w-5 text-slate-400" />
+              <span className="text-slate-400">Buscar foros...</span>
+            </div>
+          )}
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Buscar foros..."
-            className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-12 text-slate-900 transition-all duration-200 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+            className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-center text-slate-900 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
           />
           {searchQuery && (
             <button
@@ -58,7 +59,6 @@ export function FilterBar() {
           )}
         </div>
 
-        {/* Category Dropdown */}
         <div className="relative md:w-56">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -74,16 +74,13 @@ export function FilterBar() {
             />
           </button>
 
-          {/* Dropdown Menu */}
           {isDropdownOpen && (
             <>
-              {/* Backdrop */}
               <div
                 className="fixed inset-0 z-10"
                 onClick={() => setIsDropdownOpen(false)}
               />
 
-              {/* Menu */}
               <div className="absolute top-full right-0 left-0 z-20 mt-2 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
                 <div className="max-h-64 overflow-y-auto py-2">
                   {categories.map((category) => (

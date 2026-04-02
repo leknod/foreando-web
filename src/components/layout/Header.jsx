@@ -48,7 +48,7 @@ export default function Header() {
           </nav>
           <div className="hidden md:block">
             <Link
-              href={"/listar-foro"}
+              href="/listar-foro"
               className="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2563eb]"
             >
               Listar foro

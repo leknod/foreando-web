@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { poppins } from "@/lib/fonts";
 
 export default function ForumCard({ forum, index }) {
   return (
@@ -26,7 +27,9 @@ export default function ForumCard({ forum, index }) {
           </div>
           <div className="flex items-center gap-1.5">
             <div className="relative">
-              <h3 className="text-base font-semibold text-slate-800">
+              <h3
+                className={`${poppins.className} text-base font-semibold text-slate-800 antialiased`}
+              >
                 {forum.name}
               </h3>
               <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
@@ -43,7 +46,7 @@ export default function ForumCard({ forum, index }) {
             href={forum.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:gap-3 hover:from-blue-600 hover:to-blue-700 hover:shadow-md"
+            className={`${poppins.className} inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white antialiased shadow-sm transition-all duration-200 hover:gap-3 hover:from-blue-600 hover:to-blue-700 hover:shadow-md`}
           >
             <svg
               className="h-4 w-4"

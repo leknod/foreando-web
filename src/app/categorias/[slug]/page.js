@@ -15,6 +15,24 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+
+  const { data } = await supabase
+    .from("categories")
+    .select("name")
+    .eq("slug", slug)
+    .limit(1);
+
+  const category = data?.[0];
+  if (!category) return { title: "Categoría no encontrada" };
+
+  return {
+    title: category.name,
+    description: `Foros y comunidades de ${category.name.toLowerCase()} en español.`,
+  };
+}
+
 export default async function Page({ params }) {
   const { slug } = await params;
 

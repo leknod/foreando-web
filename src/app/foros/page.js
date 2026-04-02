@@ -4,6 +4,12 @@ import { supabase } from "@/lib/supabase";
 import FeaturedSection from "@/components/layout/FeaturedSection";
 import { FilterBar } from "@/components/layout/FilterBar";
 
+export const metadata = {
+  title: "Todos los foros en español",
+  description:
+    "Descubre todos los foros en español disponibles en Foreando.com. Explora comunidades activas, participa en debates y encuentra foros según tus intereses.",
+};
+
 export default async function Page() {
   const { data: forums, error } = await supabase
     .from("forums")

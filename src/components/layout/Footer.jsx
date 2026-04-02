@@ -14,7 +14,7 @@ const footerLinks = {
     { label: "Contacto", href: "#" },
   ],
   legal: [
-    { label: "Aviso Legal", href: "#" },
+    { label: "Aviso Legal", href: "/aviso-legal" },
     { label: "Política de privacidad", href: "#" },
     { label: "Política de cookies", href: "#" },
     { label: "Términos de uso", href: "#" },
@@ -30,8 +30,7 @@ export default function Footer() {
             <Logo imgWidth="w-10" textSize="text-2xl" on="dark" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
               Directorio de foros y comunidades online en español. Encuentra tu
-              comunidad ideal y conecta con personas que comparten tus
-              intereses.
+              comunidad y conecta con personas que comparten tus intereses.
             </p>
           </div>
           <div>

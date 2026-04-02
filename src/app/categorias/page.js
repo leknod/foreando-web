@@ -4,6 +4,12 @@ import Hero from "@/components/layout/Hero";
 import { SearchBar } from "@/components/layout/SearchBar";
 import { supabase } from "@/lib/supabase";
 
+export const metadata = {
+  title: "Categorías de foros en español",
+  description:
+    "Explora las categorías de Foreando.com y encuentra foros en español organizados por temática. Descubre comunidades activas según tus intereses.",
+};
+
 export default async function Page() {
   const { data: categories, error } = await supabase
     .from("categories")
@@ -13,8 +19,9 @@ export default async function Page() {
     categories.map(async (category) => {
       const { data: forums } = await supabase
         .from("forums")
-        .select("id, name, slug, icon")
+        .select("id, name, slug, icon, url")
         .eq("category_id", category.id)
+        .order("sort_order")
         .limit(10);
 
       return {
