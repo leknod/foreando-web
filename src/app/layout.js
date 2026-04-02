@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         className={`bg-surface text-foreground ${openSans.className} antialiased`}
       >
         <Header />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
