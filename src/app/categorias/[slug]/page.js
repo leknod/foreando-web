@@ -55,7 +55,7 @@ export default async function Page({ params }) {
 
   const { data: forums, error: forumsError } = await supabase
     .from("forums")
-    .select("id, name, short_description, url, icon")
+    .select("id, name, short_description, url, icon, slug")
     .eq("category_id", category.id);
 
   if (forumsError) {
