@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 import Hero from "@/components/layout/Hero";
 import ForumCard from "@/components/layout/ForumCard";
+import { categoryIcons } from "@/lib/categoryIcons";
 
 export const revalidate = 3600;
 
@@ -61,9 +62,11 @@ export default async function Page({ params }) {
     console.error("Error fetching forums:", forumsError);
   }
 
+  const Icon = categoryIcons[category.slug];
+
   return (
     <>
-      <Hero title={category.name} subtitle={category.description} />
+      <Hero title={category.name} subtitle={category.description} Icon={Icon} />
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {forums.map((forum, index) => (
           <ForumCard key={forum.id} forum={forum} index={index} />

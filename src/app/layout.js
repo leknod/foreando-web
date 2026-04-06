@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
-import { openSans } from "@/lib/fonts";
+import { openSans, poppins } from "@/lib/fonts";
 
 export const metadata = {
   title: {
@@ -17,7 +17,7 @@ export const metadata = {
     url: "https://foreando.com",
     siteName: "Foreando",
     images: [
-      { url: "https://tudominio.com/og-image.png", width: 1200, height: 630 },
+      { url: "https://foreando.com/og-image.png", width: 1200, height: 630 },
     ],
   },
 };
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body
-        className={`bg-surface text-foreground ${openSans.className} antialiased`}
+        className={`bg-surface text-foreground ${openSans.className} ${poppins.variable} antialiased`}
       >
         <Header />
         <main>{children}</main>

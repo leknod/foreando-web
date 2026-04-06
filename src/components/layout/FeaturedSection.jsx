@@ -4,7 +4,7 @@ import FeaturedForumCard from "./FeaturedForumCard";
 export default async function FeaturedSection() {
   const { data: featuredForums, featuredError } = await supabase
     .from("forums")
-    .select("id, name, short_description, url, icon")
+    .select("id, name, short_description, url, icon, slug")
     .eq("featured", true)
     .limit(4);
 

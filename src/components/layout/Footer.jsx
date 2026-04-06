@@ -11,14 +11,14 @@ const footerLinks = {
   sobreNosotros: [
     { label: "Listar foro", href: "/listar-foro" },
     //{label: "Publicitarse", href: "#" },
-    { label: "Quiénes somos", href: "#" },
-    { label: "Contacto", href: "#" },
+    { label: "Quiénes somos", href: "quienes-somos" },
+    { label: "Contacto", href: "contacto" },
   ],
   legal: [
     { label: "Aviso Legal", href: "/aviso-legal" },
-    { label: "Política de privacidad", href: "#" },
-    { label: "Política de cookies", href: "#" },
-    { label: "Términos de uso", href: "#" },
+    { label: "Política de privacidad", href: "/politica-de-privacidad" },
+    { label: "Política de cookies", href: "politica-de-cookies" },
+    { label: "Términos de uso", href: "terminos-de-uso" },
   ],
 };
 

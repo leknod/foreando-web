@@ -1,11 +1,21 @@
 import Link from "next/link";
 import { poppins } from "@/lib/fonts";
+import { categoryIcons } from "@/lib/categoryIcons";
+import { HelpCircle } from "lucide-react";
 
 export default function CategoryCard({ category }) {
+  const Icon = categoryIcons[category.slug];
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       <Link href={`/categorias/${category.slug}`}>
         <div className="relative flex items-center justify-center gap-2 px-3 py-3">
+          <span className="text-slate-600">
+            {Icon ? (
+              <Icon className="h-4 w-4" />
+            ) : (
+              <HelpCircle className="h-4 w-4" />
+            )}{" "}
+          </span>
           <h3
             className={`${poppins.className} text-base font-semibold text-slate-800 antialiased`}
           >
@@ -17,7 +27,7 @@ export default function CategoryCard({ category }) {
 
       <div className="flex-1 py-2 pl-2">
         {category.forums?.slice(0, 10).map((forum, index) => (
-          <a
+          <div
             key={index}
             href={forum.url}
             className={`flex items-center gap-2 px-3 py-2.5 transition-colors hover:bg-blue-50 md:py-2 ${
@@ -27,13 +37,19 @@ export default function CategoryCard({ category }) {
             <span className="w-5 text-xs font-medium text-slate-400">
               {index + 1}.
             </span>
-            <span className="flex h-5 w-5 items-center justify-center rounded bg-slate-100 text-xs">
-              <img src={forum.icon} alt="" />
-            </span>
-            <span className="truncate text-sm font-medium text-slate-700">
-              {forum.name}
-            </span>
-          </a>
+            <Link href={`/foros/${forum.slug}`} className="flex gap-2">
+              <span className="flex h-5 w-5 items-center justify-center rounded bg-slate-100 text-xs">
+                <img
+                  src={`/icons/${forum.icon}`}
+                  alt={forum.name}
+                  title={forum.name}
+                />
+              </span>
+              <span className="truncate text-sm font-medium text-slate-700">
+                {forum.name}
+              </span>
+            </Link>
+          </div>
         ))}
       </div>
 

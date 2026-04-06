@@ -3,24 +3,22 @@ import Hero from "@/components/layout/Hero";
 export const metadata = {
   title: "Aviso legal",
   description:
-    "Aviso legal de Foreando.com con información sobre el titular del sitio web, condiciones de uso y responsabilidades legales aplicables a los usuarios.",
+    "Aviso legal con información sobre el titular del sitio web, condiciones de uso y responsabilidades legales aplicables a los usuarios.",
 };
 
 export default function AvisoLegal() {
   return (
     <>
       <Hero title="Aviso legal" />
-      <section className="mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          1. Datos identificativos
-        </h2>
+      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
+        <h2>1. Datos identificativos</h2>
         <p>
           En cumplimiento del deber de información recogido en el artículo 10 de
           la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la
           Información y del Comercio Electrónico, a continuación se reflejan los
           siguientes datos:
         </p>
-        <ul className="list-disc pl-5">
+        <ul>
           <li>
             <strong>Titular:</strong> Marc Doncel
           </li>
@@ -36,9 +34,7 @@ export default function AvisoLegal() {
           </li>
         </ul>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          2. Objeto y ámbito de aplicación
-        </h2>
+        <h2>2. Objeto y ámbito de aplicación</h2>
         <p>
           El presente aviso legal regula el uso del sitio web Foreando (en
           adelante, "el Sitio Web"), un directorio de foros y comunidades online
@@ -47,9 +43,7 @@ export default function AvisoLegal() {
           aviso legal.
         </p>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          3. Naturaleza del servicio
-        </h2>
+        <h2>3. Naturaleza del servicio</h2>
         <p>
           Foreando es un directorio que recopila y organiza enlaces a foros y
           comunidades online de habla hispana. El Sitio Web actúa únicamente
@@ -57,7 +51,7 @@ export default function AvisoLegal() {
           alojar ni controlar el contenido de los foros listados.
         </p>
         <p>El titular del Sitio Web no se hace responsable de:</p>
-        <ul className="list-disc pl-5">
+        <ul>
           <li>El contenido publicado en los foros enlazados</li>
           <li>Las políticas de privacidad de los sitios externos</li>
           <li>La disponibilidad o funcionamiento de los foros listados</li>
@@ -67,15 +61,13 @@ export default function AvisoLegal() {
           </li>
         </ul>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          4. Condiciones de uso
-        </h2>
+        <h2>4. Condiciones de uso</h2>
         <p>
           El usuario se compromete a utilizar el Sitio Web de conformidad con la
           ley, el presente aviso legal, y las buenas costumbres. En particular,
           el usuario se obliga a:
         </p>
-        <ul className="list-disc pl-5">
+        <ul>
           <li>
             No utilizar el Sitio Web para actividades ilícitas o contrarias a la
             buena fe
@@ -90,14 +82,12 @@ export default function AvisoLegal() {
           </li>
         </ul>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          5. Listado de foros
-        </h2>
+        <h2>5. Listado de foros</h2>
         <p>
           Los usuarios que deseen incluir su foro en el directorio deberán
           cumplir los siguientes requisitos:
         </p>
-        <ul className="list-disc pl-5">
+        <ul>
           <li>Ser el propietario o administrador autorizado del foro</li>
           <li>El foro debe estar activo y accesible públicamente</li>
           <li>El contenido del foro debe cumplir con la legislación vigente</li>
@@ -112,9 +102,7 @@ export default function AvisoLegal() {
           inapropiado, sin necesidad de previo aviso ni justificación.
         </p>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          6. Propiedad intelectual
-        </h2>
+        <h2>6. Propiedad intelectual</h2>
         <p>
           Todos los contenidos del Sitio Web, incluyendo textos, imágenes,
           diseño gráfico, logotipos, iconos, y código fuente, están protegidos
@@ -127,11 +115,9 @@ export default function AvisoLegal() {
           del titular.
         </p>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          7. Exclusión de garantías y responsabilidad
-        </h2>
+        <h2>7. Exclusión de garantías y responsabilidad</h2>
         <p>El titular del Sitio Web no garantiza:</p>
-        <ul className="list-disc pl-5">
+        <ul>
           <li>La disponibilidad continua e ininterrumpida del servicio</li>
           <li>La ausencia de errores en los contenidos</li>
           <li>
@@ -146,9 +132,7 @@ export default function AvisoLegal() {
           imposibilidad de acceder al mismo.
         </p>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          8. Enlaces a terceros
-        </h2>
+        <h2>8. Enlaces a terceros</h2>
         <p>
           El Sitio Web contiene enlaces a sitios web de terceros (foros). Estos
           enlaces se proporcionan únicamente para facilitar al usuario la
@@ -157,9 +141,7 @@ export default function AvisoLegal() {
           externos.
         </p>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          9. Modificaciones
-        </h2>
+        <h2>9. Modificaciones</h2>
         <p>
           El titular se reserva el derecho de modificar en cualquier momento las
           condiciones aquí determinadas, siendo debidamente publicadas como aquí
@@ -168,9 +150,7 @@ export default function AvisoLegal() {
           debidamente publicadas.
         </p>
 
-        <h2 className="mt-8 text-xl font-medium text-gray-900">
-          10. Legislación aplicable y jurisdicción
-        </h2>
+        <h2>10. Legislación aplicable y jurisdicción</h2>
         <p>
           La relación entre el titular y el usuario se regirá por la legislación
           española vigente. Cualquier controversia se someterá a los Juzgados y

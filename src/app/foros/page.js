@@ -13,7 +13,7 @@ export const metadata = {
 export default async function Page() {
   const { data: forums, error } = await supabase
     .from("forums")
-    .select("id, name, short_description, url, icon")
+    .select("id, name, short_description, url, icon, slug")
     .eq("featured", false)
     .order("sort_order");
 

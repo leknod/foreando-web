@@ -11,31 +11,33 @@ export default function ForumCard({ forum, index }) {
       </div>
 
       <div className="flex flex-col items-center text-center">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-linear-to-br from-slate-50 to-slate-100">
-            {forum.icon ? (
-              <img
-                src={forum.icon}
-                alt={forum.name}
-                className="h-6 w-6 object-contain"
-              />
-            ) : (
-              <span className="text-xl font-bold text-blue-500">
-                {forum.name}
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="relative">
-              <h3
-                className={`${poppins.className} text-base font-semibold text-slate-800 antialiased`}
-              >
-                {forum.name}
-              </h3>
-              <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
+        <Link href={`/foros/${forum.slug}`}>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-linear-to-br from-slate-50 to-slate-100">
+              {forum.icon ? (
+                <img
+                  src={`/icons/${forum.icon}`}
+                  alt={forum.name}
+                  className="h-6 w-6 object-contain"
+                />
+              ) : (
+                <span className="text-xl font-bold text-blue-500">
+                  {forum.name}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="relative">
+                <h3
+                  className={`${poppins.className} text-base font-semibold text-slate-800 antialiased`}
+                >
+                  {forum.name}
+                </h3>
+                <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         <p className="mb-5 line-clamp-4 text-xs leading-relaxed text-slate-500">
           {`« ${forum.short_description} »`}

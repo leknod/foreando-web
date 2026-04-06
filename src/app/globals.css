@@ -12,3 +12,66 @@
   --color-primary: #3b82f6;
   --color-primary-soft: #dce7ff;
 }
+
+.long-description h2,
+.legal h2 {
+  @apply mt-8 mb-4 text-2xl font-bold text-slate-900;
+  font-family: var(--font-poppins);
+}
+
+.long-description h3,
+.legal h3 {
+  @apply mt-6 mb-3 text-xl font-semibold text-slate-800;
+  font-family: var(--font-poppins);
+}
+
+.long-description p,
+.legal p {
+  @apply mb-4 leading-relaxed text-slate-700;
+}
+
+.long-description ul,
+.legal ul {
+  @apply mb-4 pl-6;
+}
+
+.long-description ol,
+.legal ol {
+  @apply mb-4 pl-6;
+}
+
+.long-description li,
+.legal li {
+  @apply mb-1.5 leading-relaxed text-slate-700;
+  list-style-type: disc;
+}
+
+.long-description ol > li,
+.legal ol > li {
+  list-style-type: decimal;
+}
+
+.long-description strong,
+.legal strong {
+  @apply font-semibold text-slate-900;
+}
+
+.long-description em,
+.legal em {
+  @apply italic;
+}
+
+.long-description a,
+.legal a {
+  @apply text-blue-600 underline underline-offset-2 transition-colors hover:text-blue-800;
+}
+
+.long-description > *:first-child,
+.legal > *:first-child {
+  @apply mt-0;
+}
+
+.long-description > *:last-child,
+.legal > *:last-child {
+  @apply mb-0;
+}
