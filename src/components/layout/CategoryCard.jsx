@@ -39,11 +39,7 @@ export default function CategoryCard({ category }) {
             </span>
             <Link href={`/foros/${forum.slug}`} className="flex gap-2">
               <span className="flex h-5 w-5 items-center justify-center rounded bg-slate-100 text-xs">
-                <img
-                  src={`/icons/${forum.icon}`}
-                  alt={forum.name}
-                  title={forum.name}
-                />
+                <img src={`/icons/${forum.icon}`} alt="" />
               </span>
               <span className="truncate text-sm font-medium text-slate-700">
                 {forum.name}

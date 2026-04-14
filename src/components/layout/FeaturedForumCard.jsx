@@ -1,5 +1,6 @@
 import { poppins } from "@/lib/fonts";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function FeaturedForumCard({ forum, index }) {
   return (
@@ -38,7 +39,7 @@ export default function FeaturedForumCard({ forum, index }) {
               {forum.icon ? (
                 <img
                   src={`/icons/${forum.icon}`}
-                  alt={forum.name}
+                  alt=""
                   className="h-6 w-6 object-contain"
                 />
               ) : (
@@ -64,29 +65,22 @@ export default function FeaturedForumCard({ forum, index }) {
           {`« ${forum.short_description} »`}
         </p>
 
-        <div className="flex justify-center">
-          <Link
-            href={forum.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${poppins.className} inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white antialiased shadow-sm transition-all duration-200 hover:gap-3 hover:from-blue-600 hover:to-blue-700 hover:shadow-md`}
+        <Button href={forum.url}>
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-            Visitar
-          </Link>
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+          Visitar
+        </Button>
       </div>
     </article>
   );

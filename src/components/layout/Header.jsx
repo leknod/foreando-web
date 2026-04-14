@@ -6,6 +6,7 @@ import Logo from "../brand/Logo";
 import MobileMenu from "./MobileMenu";
 import { poppins } from "@/lib/fonts";
 import { Menu } from "lucide-react";
+import Button from "./Button";
 
 const navLinks = [
   { label: "Lista completa", href: "/foros" },
@@ -47,12 +48,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="hidden md:block">
-            <Link
-              href="/listar-foro"
-              className="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2563eb]"
-            >
-              Listar foro
-            </Link>
+            <Button href="/listar-foro">Listar foro</Button>
           </div>
           <button
             onClick={() => setIsMenuOpen(true)}

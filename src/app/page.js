@@ -57,12 +57,12 @@ export default async function Home() {
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-6xl">
-            Descubre las mejores{" "}
-            <span className="relative">
+            Descubre los mejores{" "}
+            <span className="relative inline-block">
               <span className="relative z-10 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                comunidades
+                foros
               </span>
-              <span className="absolute bottom-2 left-0 z-0 h-3 w-full -rotate-1 bg-blue-200/50" />
+              <span className="absolute bottom-0.5 left-0 z-0 h-3 w-full -rotate-1 bg-blue-200/75" />
             </span>{" "}
             en español
           </h1>
