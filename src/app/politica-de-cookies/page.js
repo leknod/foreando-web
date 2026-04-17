@@ -4,6 +4,13 @@ export const metadata = {
   title: "Política de cookies",
   description:
     "Política de cookies de Foreando: información sobre qué cookies utilizamos, para qué sirven y cómo puedes gestionarlas o desactivarlas.",
+  alternates: {
+    canonical: "https://foreando.com/politica-de-cookies",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function PoliticaCookies() {

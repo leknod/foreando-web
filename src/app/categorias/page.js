@@ -5,9 +5,12 @@ import { SearchBar } from "@/components/layout/SearchBar";
 import { supabase } from "@/lib/supabase";
 
 export const metadata = {
-  title: "Categorías de foros en español",
+  title: "Todos los foros en español por categorías",
   description:
-    "Explora las categorías de Foreando.com y encuentra foros en español organizados por temática. Descubre comunidades activas según tus intereses.",
+    "Explora las categorías de Foreando y encuentra foros en español organizados por temática. Descubre comunidades activas según tus intereses.",
+  alternates: {
+    canonical: "https://foreando.com/categorias",
+  },
 };
 
 export default async function Page() {
@@ -45,8 +48,7 @@ export default async function Page() {
         subtitle="Listado completo de categorías"
       />
       <FeaturedSection />
-      <SearchBar />
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 pb-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {categoriesWithForums.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}

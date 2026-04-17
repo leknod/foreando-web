@@ -5,13 +5,13 @@ import { openSans, poppins } from "@/lib/fonts";
 
 export const metadata = {
   title: {
-    default: "Foreando | Directorio de foros y comunidades online en español.",
+    default: "Foreando | Directorio de foros y comunidades online en español",
     template: "%s | Foreando",
   },
   description:
     "Directorio de foros y comunidades online en español. Encuentra tu comunidad y conecta con personas que comparten tus intereses.",
   openGraph: {
-    title: "Foreando | Directorio de foros y comunidades online en español.",
+    title: "Foreando | Directorio de foros y comunidades online en español",
     description:
       "Directorio de foros y comunidades online en español. Encuentra tu comunidad y conecta con personas que comparten tus intereses.",
     url: "https://foreando.com",
@@ -19,6 +19,9 @@ export const metadata = {
     images: [
       { url: "https://foreando.com/og-image.png", width: 1200, height: 630 },
     ],
+  },
+  alternates: {
+    canonical: "https://foreando.com",
   },
 };
 

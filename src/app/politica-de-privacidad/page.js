@@ -4,6 +4,13 @@ export const metadata = {
   title: "Política de privacidad",
   description:
     "Política de privacidad de Foreando: información sobre el tratamiento de datos personales, derechos de los usuarios y uso de cookies.",
+  alternates: {
+    canonical: "https://foreando.com/politica-de-privacidad",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function PoliticaPrivacidad() {

@@ -34,7 +34,7 @@ const SELECT_COLUMNS = "id, name, short_description, url";
 const CONCURRENCY = 2;
 
 // Solo procesar foros donde la columna destino esté vacía (true = no sobreescribir)
-const SKIP_ALREADY_FILLED = false;
+const SKIP_ALREADY_FILLED = true;
 
 // ─── VALIDACIÓN ───────────────────────────────────────────────────────────────
 

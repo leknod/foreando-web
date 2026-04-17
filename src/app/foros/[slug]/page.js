@@ -30,8 +30,11 @@ export async function generateMetadata({ params }) {
   if (!forum) return { title: "Foro no encontrado" };
 
   return {
-    title: forum.name,
+    title: `Todo sobre ${forum.name}`,
     description: forum.short_description,
+    alternates: {
+      canonical: `https://foreando.com/foros/${slug}`,
+    },
   };
 }
 

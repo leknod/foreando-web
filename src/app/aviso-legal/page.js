@@ -4,6 +4,13 @@ export const metadata = {
   title: "Aviso legal",
   description:
     "Aviso legal con información sobre el titular del sitio web, condiciones de uso y responsabilidades legales aplicables a los usuarios.",
+  alternates: {
+    canonical: "https://foreando.com/aviso-legal",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function AvisoLegal() {

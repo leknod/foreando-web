@@ -29,8 +29,11 @@ export async function generateMetadata({ params }) {
   if (!category) return { title: "Categoría no encontrada" };
 
   return {
-    title: `Foros de ${category.name.toLowerCase()}`,
+    title: `Recopilación de foros de ${category.name.toLowerCase()}`,
     description: category.description,
+    alternates: {
+      canonical: `https://foreando.com/categorias/${slug}`,
+    },
   };
 }
 

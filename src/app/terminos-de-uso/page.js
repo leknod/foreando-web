@@ -4,6 +4,13 @@ export const metadata = {
   title: "Términos de uso",
   description:
     "Términos de uso de Foreando: condiciones que regulan el acceso y uso del directorio de foros y comunidades online en español.",
+  alternates: {
+    canonical: "https://foreando.com/terminos-de-uso",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function TerminosUso() {

@@ -4,6 +4,13 @@ export const metadata = {
   title: "Quiénes somos",
   description:
     "Conoce el origen de Foreando, un directorio de foros y comunidades online en español creado por alguien que simplemente disfruta recopilando y organizando información.",
+  alternates: {
+    canonical: "https://foreando.com/quienes-somos",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function QuienesSomos() {
