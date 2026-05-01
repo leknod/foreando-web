@@ -1,4 +1,5 @@
 import Hero from "@/components/layout/Hero";
+import Link from "next/link";
 
 export const metadata = {
   title: "Política de privacidad",
@@ -18,26 +19,7 @@ export default function PoliticaPrivacidad() {
     <>
       <Hero title="Política de privacidad" />
       <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
-        <h2>1. Responsable del tratamiento</h2>
-        <p>
-          En cumplimiento del Reglamento (UE) 2016/679 del Parlamento Europeo y
-          del Consejo (RGPD) y la Ley Orgánica 3/2018, de 5 de diciembre, de
-          Protección de Datos Personales y garantía de los derechos digitales
-          (LOPDGDD), se informa al usuario de los siguientes datos:
-        </p>
-        <ul>
-          <li>
-            <strong>Responsable:</strong> Marc Doncel
-          </li>
-          <li>
-            <strong>Correo electrónico:</strong> contacto@tudominio.com
-          </li>
-          <li>
-            <strong>Sitio web:</strong> marcdoncel.com
-          </li>
-        </ul>
-
-        <h2>2. Datos que se recogen</h2>
+        <h2>1. Datos que se recogen</h2>
         <p>
           Foreando puede recopilar los siguientes datos personales según la
           interacción del usuario con el Sitio Web:
@@ -61,7 +43,7 @@ export default function PoliticaPrivacidad() {
           parental, procederá a su eliminación.
         </p>
 
-        <h2>3. Finalidad del tratamiento</h2>
+        <h2>2. Finalidad del tratamiento</h2>
         <p>Los datos facilitados se tratan con las siguientes finalidades:</p>
         <ul>
           <li>
@@ -78,7 +60,7 @@ export default function PoliticaPrivacidad() {
           <li>Cumplir con las obligaciones legales aplicables.</li>
         </ul>
 
-        <h2>4. Base jurídica del tratamiento</h2>
+        <h2>3. Base jurídica del tratamiento</h2>
         <p>
           El tratamiento de los datos se fundamenta en las siguientes bases
           jurídicas:
@@ -96,7 +78,7 @@ export default function PoliticaPrivacidad() {
           </li>
         </ul>
 
-        <h2>5. Conservación de los datos</h2>
+        <h2>4. Conservación de los datos</h2>
         <p>
           Los datos personales se conservarán únicamente durante el tiempo
           necesario para cumplir la finalidad para la que fueron recogidos y, en
@@ -106,7 +88,7 @@ export default function PoliticaPrivacidad() {
           aplicable.
         </p>
 
-        <h2>6. Comunicación de datos a terceros</h2>
+        <h2>5. Comunicación de datos a terceros</h2>
         <p>
           El titular no cederá los datos personales de los usuarios a terceros,
           salvo obligación legal o en los casos en que sea estrictamente
@@ -120,11 +102,11 @@ export default function PoliticaPrivacidad() {
           terceros.
         </p>
 
-        <h2>7. Derechos de los usuarios</h2>
+        <h2>6. Derechos de los usuarios</h2>
         <p>
           El usuario puede ejercer en cualquier momento los siguientes derechos
-          ante el responsable del tratamiento, enviando una comunicación a{" "}
-          <strong>contacto@tudominio.com</strong>:
+          ante el responsable del tratamiento, enviando una comunicación en
+          nuestra <Link href={"/contacto"}>página de contacto</Link>:
         </p>
         <ul>
           <li>
@@ -159,15 +141,15 @@ export default function PoliticaPrivacidad() {
           normativa vigente.
         </p>
 
-        <h2>8. Cookies</h2>
+        <h2>7. Cookies</h2>
         <p>
           El Sitio Web utiliza cookies propias y de terceros. Para más
           información sobre qué cookies se utilizan y cómo gestionarlas,
           consulte nuestra{" "}
-          <a href="/politica-de-cookies">Política de cookies</a>.
+          <Link href={"/politica-de-cookies"}>política de cookies</Link>.
         </p>
 
-        <h2>9. Seguridad</h2>
+        <h2>8. Seguridad</h2>
         <p>
           El titular adopta las medidas técnicas y organizativas necesarias para
           garantizar la seguridad de los datos personales y evitar su
@@ -176,7 +158,7 @@ export default function PoliticaPrivacidad() {
           a que están expuestos.
         </p>
 
-        <h2>10. Modificaciones</h2>
+        <h2>9. Modificaciones</h2>
         <p>
           El titular se reserva el derecho de modificar la presente política de
           privacidad para adaptarla a novedades legislativas, jurisprudenciales

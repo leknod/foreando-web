@@ -24,7 +24,6 @@ export function FilterBar({
   onCategoryChange,
   availableCategories,
 }) {
-  // Use props if provided, otherwise fallback to local state
   const [localSearchQuery, setLocalSearchQuery] = useState("");
   const [localSelectedCategory, setLocalSelectedCategory] = useState(
     "Todas las categorías",
@@ -36,7 +35,6 @@ export function FilterBar({
   const currentCategory =
     selectedCategory !== undefined ? selectedCategory : localSelectedCategory;
 
-  // Use dynamically passed categories or fallback to hardcoded ones
   const displayCategories = availableCategories || categories;
 
   const handleSearchUpdate = (value) => {

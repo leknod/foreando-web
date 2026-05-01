@@ -18,11 +18,20 @@ export default function FormContacto() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simular envío
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    setIsLoading(false);
-    setIsSubmitted(true);
+      if (!res.ok) throw new Error();
+      setIsSubmitted(true);
+    } catch {
+      alert("Error al enviar. Inténtalo de nuevo.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -56,7 +65,7 @@ export default function FormContacto() {
                 setIsSubmitted(false);
                 setFormData({ nombre: "", email: "", mensaje: "" });
               }}
-              className="mt-8 inline-flex items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3 text-sm font-medium text-white transition-all hover:from-blue-600 hover:to-blue-700"
+              className="mt-8 inline-flex cursor-pointer items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3 text-sm font-medium text-white transition-all hover:from-blue-600 hover:to-blue-700"
             >
               Enviar otro mensaje
             </button>
@@ -138,7 +147,7 @@ export default function FormContacto() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`${poppins.className} mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70`}
+              className={`${poppins.className} mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70`}
             >
               {isLoading ? (
                 <>

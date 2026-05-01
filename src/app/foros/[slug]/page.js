@@ -24,6 +24,7 @@ export async function generateMetadata({ params }) {
     .from("forums")
     .select("name, short_description")
     .eq("slug", slug)
+    .eq("status", "approved")
     .limit(1);
 
   const forum = data?.[0];

@@ -6,6 +6,7 @@ export default async function FeaturedSection() {
     .from("forums")
     .select("id, name, short_description, url, icon, slug")
     .eq("featured", true)
+    .eq("status", "approved")
     .limit(4);
 
   if (featuredError) {

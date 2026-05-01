@@ -10,7 +10,6 @@ export default function ForumsList({ initialForums }) {
     "Todas las categorías",
   );
 
-  // Get uniquely available categories from the initial forums list
   const availableCategories = useMemo(() => {
     const cats = new Set(
       initialForums.map((forum) => forum.categories?.name).filter(Boolean),

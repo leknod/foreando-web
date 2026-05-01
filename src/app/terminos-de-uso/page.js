@@ -1,4 +1,5 @@
 import Hero from "@/components/layout/Hero";
+import Link from "next/link";
 
 export const metadata = {
   title: "Términos de uso",
@@ -65,7 +66,7 @@ export default function TerminosUso() {
           El titular se reserva el derecho de aceptar, rechazar o eliminar
           cualquier foro sin necesidad de justificación, especialmente si
           incumple los presentes términos o el{" "}
-          <a href="/aviso-legal">Aviso legal</a>.
+          <Link href={"/aviso-legal"}>Aviso legal</Link>.
         </p>
 
         <h2>5. Contenido de terceros</h2>
@@ -110,7 +111,8 @@ export default function TerminosUso() {
         <h2>10. Contacto</h2>
         <p>
           Para cualquier consulta relacionada con estos términos, puedes
-          contactar en <strong>contacto@tudominio.com</strong>.
+          contactar en nuestra{" "}
+          <Link href={"/contacto"}>página de contacto</Link>.
         </p>
       </section>
     </>

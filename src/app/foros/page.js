@@ -17,6 +17,7 @@ export default async function Page() {
     .from("forums")
     .select("id, name, short_description, url, icon, slug, categories(name)")
     .eq("featured", false)
+    .eq("status", "approved")
     .order("sort_order");
 
   if (error) {

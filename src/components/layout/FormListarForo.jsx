@@ -2,6 +2,7 @@
 
 import Hero from "@/components/layout/Hero";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 import {
   MessageSquare,
   Globe,
@@ -24,11 +25,34 @@ export default function FormListarForo() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simular envío
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const slug = formData.nombre
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)+/g, "");
 
-    setIsLoading(false);
-    setIsSubmitted(true);
+      const { error } = await supabase.from("forums").insert([
+        {
+          name: formData.nombre,
+          url: formData.url,
+          short_description: formData.descripcion,
+          slug: slug,
+          status: "pending",
+        },
+      ]);
+
+      if (error) {
+        throw error;
+      }
+
+      setIsSubmitted(true);
+      setFormData({ nombre: "", url: "", descripcion: "" });
+    } catch (error) {
+      console.error("Error al guardar en Supabase:", error);
+      alert("Hubo un problema al enviar el formulario. Inténtalo de nuevo.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -141,7 +165,7 @@ export default function FormListarForo() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`${poppins.className} mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70`}
+              className={`${poppins.className} mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70`}
             >
               {isLoading ? (
                 <>

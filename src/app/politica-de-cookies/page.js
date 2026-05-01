@@ -1,4 +1,5 @@
 import Hero from "@/components/layout/Hero";
+import Link from "next/link";
 
 export const metadata = {
   title: "Política de cookies",
@@ -27,21 +28,13 @@ export default function PoliticaCookies() {
           estadísticos o de mejora del servicio.
         </p>
 
-        <h2>2. Responsable</h2>
-        <p>
-          El responsable del uso de cookies en este Sitio Web es Marc Doncel,
-          titular de <strong>marcdoncel.com</strong>. Puede contactar en{" "}
-          <strong>contacto@tudominio.com</strong> para cualquier consulta
-          relacionada con el uso de cookies.
-        </p>
-
-        <h2>3. Cookies utilizadas en este sitio web</h2>
+        <h2>2. Cookies utilizadas en este sitio web</h2>
         <p>
           A continuación se detallan las cookies que pueden instalarse durante
           la navegación por Foreando:
         </p>
 
-        <h3>3.1 Cookies técnicas (necesarias)</h3>
+        <h3>2.1 Cookies técnicas (necesarias)</h3>
         <p>
           Son imprescindibles para el correcto funcionamiento del Sitio Web.
           Permiten, por ejemplo, mantener la sesión o recordar las preferencias
@@ -54,7 +47,7 @@ export default function PoliticaCookies() {
           </li>
         </ul>
 
-        <h3>3.2 Cookies de analítica</h3>
+        <h3>2.2 Cookies de analítica</h3>
         <p>
           Permiten analizar el uso del Sitio Web de forma anónima o agregada,
           con el objetivo de mejorar su funcionamiento y contenidos. Requieren
@@ -76,7 +69,7 @@ export default function PoliticaCookies() {
           </li>
         </ul>
 
-        <h2>4. Cómo gestionar las cookies</h2>
+        <h2>3. Cómo gestionar las cookies</h2>
         <p>
           El usuario puede aceptar, rechazar o revocar su consentimiento en
           cualquier momento a través del panel de preferencias de cookies
@@ -129,7 +122,7 @@ export default function PoliticaCookies() {
           correcto funcionamiento del Sitio Web.
         </p>
 
-        <h2>5. Transferencias internacionales</h2>
+        <h2>4. Transferencias internacionales</h2>
         <p>
           Algunas de las cookies de terceros listadas (como las de Google
           Analytics) pueden implicar transferencias de datos a servidores
@@ -138,7 +131,7 @@ export default function PoliticaCookies() {
           cláusulas contractuales tipo aprobadas por la Comisión Europea.
         </p>
 
-        <h2>6. Actualizaciones</h2>
+        <h2>5. Actualizaciones</h2>
         <p>
           Esta política puede actualizarse cuando se incorporen nuevas cookies
           al Sitio Web o cambien las condiciones de las existentes. Se
@@ -147,11 +140,12 @@ export default function PoliticaCookies() {
           necesario.
         </p>
 
-        <h2>7. Más información</h2>
+        <h2>6. Más información</h2>
         <p>
-          Para cualquier consulta sobre el uso de cookies, puede contactar en{" "}
-          <strong>contacto@tudominio.com</strong> o consultar la{" "}
-          <a href="/politica-de-privacidad">Política de privacidad</a>.
+          Para cualquier consulta sobre el uso de cookies, puede contactar en
+          nuestra <Link href={"/contacto"}>página de contacto</Link>. o
+          consultar la{" "}
+          <Link href={"/politica-de-privacidad"}>Política de privacidad</Link>.
         </p>
       </section>
     </>

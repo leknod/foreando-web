@@ -18,30 +18,7 @@ export default function AvisoLegal() {
     <>
       <Hero title="Aviso legal" />
       <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
-        <h2>1. Datos identificativos</h2>
-        <p>
-          En cumplimiento del deber de información recogido en el artículo 10 de
-          la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la
-          Información y del Comercio Electrónico, a continuación se reflejan los
-          siguientes datos:
-        </p>
-        <ul>
-          <li>
-            <strong>Titular:</strong> Marc Doncel
-          </li>
-          <li>
-            <strong>Correo electrónico:</strong> contacto@tudominio.com
-          </li>
-          <li>
-            <strong>Sitio web:</strong> marcdoncel.com
-          </li>
-          <li>
-            <strong>Actividad:</strong> Directorio informativo de foros y
-            comunidades online
-          </li>
-        </ul>
-
-        <h2>2. Objeto y ámbito de aplicación</h2>
+        <h2>1. Objeto y ámbito de aplicación</h2>
         <p>
           El presente aviso legal regula el uso del sitio web Foreando (en
           adelante, "el Sitio Web"), un directorio de foros y comunidades online
@@ -50,7 +27,7 @@ export default function AvisoLegal() {
           aviso legal.
         </p>
 
-        <h2>3. Naturaleza del servicio</h2>
+        <h2>2. Naturaleza del servicio</h2>
         <p>
           Foreando es un directorio que recopila y organiza enlaces a foros y
           comunidades online de habla hispana. El Sitio Web actúa únicamente
@@ -68,7 +45,7 @@ export default function AvisoLegal() {
           </li>
         </ul>
 
-        <h2>4. Condiciones de uso</h2>
+        <h2>3. Condiciones de uso</h2>
         <p>
           El usuario se compromete a utilizar el Sitio Web de conformidad con la
           ley, el presente aviso legal, y las buenas costumbres. En particular,
@@ -89,7 +66,7 @@ export default function AvisoLegal() {
           </li>
         </ul>
 
-        <h2>5. Listado de foros</h2>
+        <h2>4. Listado de foros</h2>
         <p>
           Los usuarios que deseen incluir su foro en el directorio deberán
           cumplir los siguientes requisitos:
@@ -109,7 +86,7 @@ export default function AvisoLegal() {
           inapropiado, sin necesidad de previo aviso ni justificación.
         </p>
 
-        <h2>6. Propiedad intelectual</h2>
+        <h2>5. Propiedad intelectual</h2>
         <p>
           Todos los contenidos del Sitio Web, incluyendo textos, imágenes,
           diseño gráfico, logotipos, iconos, y código fuente, están protegidos
@@ -122,7 +99,7 @@ export default function AvisoLegal() {
           del titular.
         </p>
 
-        <h2>7. Exclusión de garantías y responsabilidad</h2>
+        <h2>6. Exclusión de garantías y responsabilidad</h2>
         <p>El titular del Sitio Web no garantiza:</p>
         <ul>
           <li>La disponibilidad continua e ininterrumpida del servicio</li>
@@ -139,7 +116,7 @@ export default function AvisoLegal() {
           imposibilidad de acceder al mismo.
         </p>
 
-        <h2>8. Enlaces a terceros</h2>
+        <h2>7. Enlaces a terceros</h2>
         <p>
           El Sitio Web contiene enlaces a sitios web de terceros (foros). Estos
           enlaces se proporcionan únicamente para facilitar al usuario la
@@ -148,7 +125,7 @@ export default function AvisoLegal() {
           externos.
         </p>
 
-        <h2>9. Modificaciones</h2>
+        <h2>8. Modificaciones</h2>
         <p>
           El titular se reserva el derecho de modificar en cualquier momento las
           condiciones aquí determinadas, siendo debidamente publicadas como aquí
@@ -157,7 +134,7 @@ export default function AvisoLegal() {
           debidamente publicadas.
         </p>
 
-        <h2>10. Legislación aplicable y jurisdicción</h2>
+        <h2>9. Legislación aplicable y jurisdicción</h2>
         <p>
           La relación entre el titular y el usuario se regirá por la legislación
           española vigente. Cualquier controversia se someterá a los Juzgados y
