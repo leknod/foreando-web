@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# Foreando
 
-First, run the development server:
+![Foreando Preview](./preview.jpeg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**A curated directory of online forums to help users discover active and niche communities.**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Live demo](https://foreando.com)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 Overview
 
-## Learn More
+Foreando is a modern directory of online forums focused on discoverability and quality.
 
-To learn more about Next.js, take a look at the following resources:
+The project aims to make it easier to find active communities across different topics, avoiding outdated or inactive forums by organizing content in a structured and user-friendly way.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 What's Included
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- A categorized directory of online forums.
+- Individual pages for each forum with detailed information.
+- SEO-friendly structure (sitemap, canonical URLs).
+- Submission system for new forums.
+- Clean and responsive UI.
+- Optimized metadata and accessibility improvements.
 
-## Deploy on Vercel
+## 🛠️ Built With
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Supabase](https://supabase.com/)
+- [Resend](https://resend.com/)
+- [Vercel](https://vercel.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚙️ Setup Guide
+
+You will need `node.js` and `git` installed globally on your machine.
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/project-name.git
+   ```
+
+2. Install dependencies:
+   
+   ```bash
+   cd project-name
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+Open http://localhost:3000 to view it in the browser.
+
+---
+
+<div align="center">
+
+[MIT License](https://github.com/leknod/arandoncel-com/blob/main/LICENSE) | [MarcDoncel.com](https://marcdoncel.com)
+
+</div>
