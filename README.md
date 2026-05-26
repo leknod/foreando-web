@@ -10,13 +10,13 @@
 
 </div>
 
-## 📖 Overview
+## 📖 About the project
 
 Foreando is a modern directory of online forums focused on discoverability and quality.
 
 The project aims to make it easier to find active communities across different topics, avoiding outdated or inactive forums by organizing content in a structured and user-friendly way.
 
-## 🌐 What's Included
+## 🔥 Features
 
 - A categorized directory of online forums.
 - Individual pages for each forum with detailed information.
@@ -33,20 +33,20 @@ The project aims to make it easier to find active communities across different t
 - [Resend](https://resend.com/)
 - [Vercel](https://vercel.com/)
 
-## ⚙️ Setup Guide
+## 🚀 Getting Started
 
 You will need `node.js` and `git` installed globally on your machine.
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/project-name.git
+   git clone https://github.com/leknod/foreando.git
    ```
 
 2. Install dependencies:
    
    ```bash
-   cd project-name
+   cd foreando
    npm install
    ```
 
@@ -62,6 +62,6 @@ Open http://localhost:3000 to view it in the browser.
 
 <div align="center">
 
-[MIT License](https://github.com/leknod/arandoncel-com/blob/main/LICENSE) | [MarcDoncel.com](https://marcdoncel.com)
+[MIT License](https://github.com/leknod/foreando/blob/main/LICENSE) | [MarcDoncel.com](https://marcdoncel.com)
 
 </div>
