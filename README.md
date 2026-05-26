@@ -1,6 +1,6 @@
 <div align="center">
 
-# Foreando
+# Foreando.com
 
 ![Foreando Preview](./preview.jpeg)
 
