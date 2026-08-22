@@ -9,8 +9,10 @@ export default async function Home() {
     .from("categories")
     .select("id, name, slug, forums:forums(count)");
 
+  if (error) console.error("Supabase error:", error);
+
   const categoriesWithForums = await Promise.all(
-    categories.map(async (category) => {
+    (categories ?? []).map(async (category) => {
       const { data: forums } = await supabase
         .from("forums")
         .select("id, name, slug, icon")
