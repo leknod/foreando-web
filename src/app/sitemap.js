@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { sql } from "@/lib/db";
 
 export default async function sitemap() {
   const staticRoutes = [
@@ -7,14 +7,14 @@ export default async function sitemap() {
     { url: "https://foreando.com/foros" },
   ];
 
-  const { data: categories } = await supabase.from("categories").select("slug");
+  const categories = await sql`SELECT slug FROM categories`;
 
   const categoryRoutes =
     categories?.map((category) => ({
       url: `https://foreando.com/categorias/${category.slug}`,
     })) ?? [];
 
-  const { data: forums } = await supabase.from("forums").select("slug");
+  const forums = await sql`SELECT slug FROM forums`;
 
   const forumRoutes =
     forums?.map((forum) => ({

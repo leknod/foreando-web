@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { sql } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Hero from "@/components/layout/Hero";
 import { categoryIcons } from "@/lib/categoryIcons";
@@ -8,24 +8,23 @@ import { HelpCircle } from "lucide-react";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const { data, error } = await supabase.from("forums").select("slug");
-
-  if (error || !data) return [];
-
-  return data.map((forum) => ({
-    slug: forum.slug,
-  }));
+  try {
+    const data = await sql`SELECT slug FROM forums`;
+    return data.map((forum) => ({ slug: forum.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
-  const { data } = await supabase
-    .from("forums")
-    .select("name, short_description")
-    .eq("slug", slug)
-    .eq("status", "approved")
-    .limit(1);
+  const data = await sql`
+    SELECT name, short_description
+    FROM forums
+    WHERE slug = ${slug} AND status = 'approved'
+    LIMIT 1
+  `;
 
   const forum = data?.[0];
   if (!forum) return { title: "Foro no encontrado" };
@@ -42,30 +41,39 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { slug } = await params;
 
-  const { data, error } = await supabase
-    .from("forums")
-    .select("*, categories(name, slug)")
-    .eq("slug", slug)
-    .limit(1);
+  const data = await sql`
+    SELECT f.*, c.name AS category_name, c.slug AS category_slug
+    FROM forums f
+    LEFT JOIN categories c ON c.id = f.category_id
+    WHERE f.slug = ${slug}
+    LIMIT 1
+  `;
 
-  if (error) {
-    throw new Error(error.message);
-  }
+  const row = data?.[0];
 
-  const forum = data?.[0];
-
-  if (!forum) {
+  if (!row) {
     notFound();
   }
 
-  const { data: relatedData } = await supabase
-    .from("forums")
-    .select("*, categories(name, slug)")
-    .eq("category_id", forum.category_id)
-    .neq("slug", slug)
-    .limit(3);
+  // Reshape to match the previous { categories: { name, slug } } structure
+  const forum = {
+    ...row,
+    categories: { name: row.category_name, slug: row.category_slug },
+  };
 
-  const relatedForums = relatedData || [];
+  const relatedForums = await sql`
+    SELECT f.*, c.name AS category_name, c.slug AS category_slug
+    FROM forums f
+    LEFT JOIN categories c ON c.id = f.category_id
+    WHERE f.category_id = ${forum.category_id} AND f.slug != ${slug}
+    ORDER BY f.sort_order DESC NULLS LAST
+    LIMIT 3
+  `;
+
+  const relatedForumsReshaped = relatedForums.map((rf) => ({
+    ...rf,
+    categories: { name: rf.category_name, slug: rf.category_slug },
+  }));
 
   const Icon = categoryIcons[forum.categories?.slug] || HelpCircle;
 
@@ -100,7 +108,7 @@ export default async function Page({ params }) {
             </h3>
 
             <div className="flex flex-col gap-4">
-              {relatedForums.map((related, index) => (
+              {relatedForumsReshaped.map((related, index) => (
                 <ForumCard
                   key={related.id || related.slug}
                   forum={related}

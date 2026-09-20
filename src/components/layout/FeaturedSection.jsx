@@ -1,15 +1,18 @@
-import { supabase } from "@/lib/supabase";
+import { sql } from "@/lib/db";
 import FeaturedForumCard from "./FeaturedForumCard";
 
 export default async function FeaturedSection() {
-  const { data: featuredForums, featuredError } = await supabase
-    .from("forums")
-    .select("id, name, short_description, url, icon, slug")
-    .eq("featured", true)
-    .eq("status", "approved")
-    .limit(4);
-
-  if (featuredError) {
+  let featuredForums;
+  try {
+    featuredForums = await sql`
+      SELECT id, name, short_description, url, icon, slug
+      FROM forums
+      WHERE featured = true AND status = 'approved'
+      ORDER BY sort_order DESC NULLS LAST
+      LIMIT 4
+    `;
+  } catch (error) {
+    console.error("Error cargando foros destacados:", error);
     return <p>Error cargando foros</p>;
   }
 

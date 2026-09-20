@@ -1,5 +1,5 @@
 import Hero from "@/components/layout/Hero";
-import { supabase } from "@/lib/supabase";
+import { sql } from "@/lib/db";
 import FeaturedSection from "@/components/layout/FeaturedSection";
 import ForumsList from "@/components/layout/ForumsList";
 
@@ -13,16 +13,26 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const { data: forums, error } = await supabase
-    .from("forums")
-    .select("id, name, short_description, url, icon, slug, categories(name)")
-    .eq("featured", false)
-    .eq("status", "approved")
-    .order("sort_order");
-
-  if (error) {
+  let forums;
+  try {
+    forums = await sql`
+      SELECT f.id, f.name, f.short_description, f.url, f.icon, f.slug,
+             c.name AS category_name
+      FROM forums f
+      LEFT JOIN categories c ON c.id = f.category_id
+      WHERE f.featured = false AND f.status = 'approved'
+      ORDER BY f.sort_order DESC NULLS LAST
+    `;
+  } catch (error) {
+    console.error("Error cargando foros:", error);
     return <p>Error cargando foros</p>;
   }
+
+  // Reshape to match the previous { categories: { name } } structure
+  const forumsWithCategories = forums.map((forum) => ({
+    ...forum,
+    categories: { name: forum.category_name },
+  }));
 
   return (
     <>
@@ -31,7 +41,7 @@ export default async function Page() {
         subtitle="Listado completo de foros y comunidades"
       />
       <FeaturedSection />
-      <ForumsList initialForums={forums} />
+      <ForumsList initialForums={forumsWithCategories} />
     </>
   );
 }

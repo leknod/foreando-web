@@ -2,14 +2,13 @@
 // Ejecutar con: node generate-forum-descriptions.mjs
 //
 // Variables de entorno necesarias (.env.local o .env):
-//   NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
-//   SUPABASE_SERVICE_ROLE_KEY=eyJ...   <- usa la service role key, no la anon key
+//   DATABASE_URL=postgresql://<user>:<password>@<endpoint>.neon.tech/<dbname>?sslmode=require
 //   OPENAI_API_KEY=sk-...
 //
 // Instala dependencias si no las tienes:
-//   npm install @supabase/supabase-js openai dotenv
+//   npm install @neondatabase/serverless openai dotenv
 
-import { createClient } from "@supabase/supabase-js";
+import { neon } from "@neondatabase/serverless";
 import OpenAI from "openai";
 import * as dotenv from "dotenv";
 
@@ -19,11 +18,10 @@ dotenv.config({ path: ".env" });
 
 // ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const DATABASE_URL = process.env.DATABASE_URL;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-// Nombre de tu tabla y columna destino en Supabase
+// Nombre de tu tabla y columna destino
 const TABLE_NAME = "forums"; // <- cambia si tu tabla se llama diferente
 const CONTENT_COLUMN = "long_description"; // <- nombre de la columna donde guardar el texto
 
@@ -38,17 +36,16 @@ const SKIP_ALREADY_FILLED = true;
 
 // ─── VALIDACIÓN ───────────────────────────────────────────────────────────────
 
-if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !OPENAI_API_KEY) {
+if (!DATABASE_URL || !OPENAI_API_KEY) {
   console.error("❌ Faltan variables de entorno. Revisa tu .env.local:");
-  console.error("   NEXT_PUBLIC_SUPABASE_URL");
-  console.error("   SUPABASE_SERVICE_ROLE_KEY");
+  console.error("   DATABASE_URL");
   console.error("   OPENAI_API_KEY");
   process.exit(1);
 }
 
 // ─── CLIENTES ─────────────────────────────────────────────────────────────────
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const sql = neon(DATABASE_URL);
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 // ─── PROMPT ───────────────────────────────────────────────────────────────────
@@ -132,22 +129,16 @@ async function processForum(forum, index, total) {
     console.log(`⏳ ${label} — generando texto...`);
     const text = await generateText(forum);
 
-    const { error } = await supabase
-      .from(TABLE_NAME)
-      .update({ [CONTENT_COLUMN]: text })
-      .eq("id", forum.id);
+    await sql`
+      UPDATE forums
+      SET long_description = ${text}
+      WHERE id = ${forum.id}
+    `;
 
-    if (error) {
-      console.error(
-        `❌ ${label} — error al guardar en Supabase:`,
-        error.message,
-      );
-    } else {
-      const words = text.split(/\s+/).length;
-      console.log(`✅ ${label} — guardado (${words} palabras)`);
-    }
+    const words = text.split(/\s+/).length;
+    console.log(`✅ ${label} — guardado (${words} palabras)`);
   } catch (err) {
-    console.error(`❌ ${label} — error al generar:`, err.message);
+    console.error(`❌ ${label} — error:`, err.message);
   }
 }
 
@@ -163,18 +154,19 @@ async function runInBatches(items, batchSize, fn) {
 async function main() {
   console.log("🚀 Iniciando generación de textos para foros...\n");
 
-  // Leer foros de Supabase
-  let query = supabase.from(TABLE_NAME).select(SELECT_COLUMNS);
+  let forums;
 
   if (SKIP_ALREADY_FILLED) {
-    query = query.or(`${CONTENT_COLUMN}.is.null,${CONTENT_COLUMN}.eq.`);
-  }
-
-  const { data: forums, error } = await query;
-
-  if (error) {
-    console.error("❌ Error al leer foros de Supabase:", error.message);
-    process.exit(1);
+    forums = await sql`
+      SELECT id, name, short_description, url
+      FROM forums
+      WHERE long_description IS NULL OR long_description = ''
+    `;
+  } else {
+    forums = await sql`
+      SELECT id, name, short_description, url
+      FROM forums
+    `;
   }
 
   if (!forums || forums.length === 0) {

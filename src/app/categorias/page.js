@@ -2,7 +2,7 @@ import CategoryCard from "@/components/layout/CategoryCard";
 import FeaturedSection from "@/components/layout/FeaturedSection";
 import Hero from "@/components/layout/Hero";
 import { SearchBar } from "@/components/layout/SearchBar";
-import { supabase } from "@/lib/supabase";
+import { sql } from "@/lib/db";
 
 export const metadata = {
   title: "Todos los foros en español por categorías",
@@ -14,30 +14,30 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const { data: categories, error } = await supabase
-    .from("categories")
-    .select("id, name, slug, forums:forums(count)");
+  const categories = await sql`
+    SELECT c.id, c.name, c.slug, COUNT(f.id)::int AS forum_count
+    FROM categories c
+    LEFT JOIN forums f ON f.category_id = c.id
+    GROUP BY c.id
+  `;
 
   const categoriesWithForums = await Promise.all(
     categories.map(async (category) => {
-      const { data: forums } = await supabase
-        .from("forums")
-        .select("id, name, slug, icon, url")
-        .eq("category_id", category.id)
-        .order("sort_order")
-        .limit(10);
+      const forums = await sql`
+        SELECT id, name, slug, icon, url
+        FROM forums
+        WHERE category_id = ${category.id}
+        ORDER BY sort_order DESC NULLS LAST
+        LIMIT 10
+      `;
 
       return {
         ...category,
         forums,
-        forumCount: category.forums[0].count,
+        forumCount: category.forum_count,
       };
     }),
   );
-
-  if (error) {
-    return <p>Error cargando categorías</p>;
-  }
 
   categoriesWithForums.sort((a, b) => b.forumCount - a.forumCount);
 

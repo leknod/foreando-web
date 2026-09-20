@@ -2,7 +2,7 @@
 
 import Hero from "@/components/layout/Hero";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+
 import {
   MessageSquare,
   Globe,
@@ -26,29 +26,20 @@ export default function FormListarForo() {
     setIsLoading(true);
 
     try {
-      const slug = formData.nombre
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)+/g, "");
+      const response = await fetch("/api/foros", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      const { error } = await supabase.from("forums").insert([
-        {
-          name: formData.nombre,
-          url: formData.url,
-          short_description: formData.descripcion,
-          slug: slug,
-          status: "pending",
-        },
-      ]);
-
-      if (error) {
-        throw error;
+      if (!response.ok) {
+        throw new Error("Error en la solicitud");
       }
 
       setIsSubmitted(true);
       setFormData({ nombre: "", url: "", descripcion: "" });
     } catch (error) {
-      console.error("Error al guardar en Supabase:", error);
+      console.error("Error al enviar el formulario:", error);
       alert("Hubo un problema al enviar el formulario. Inténtalo de nuevo.");
     } finally {
       setIsLoading(false);
