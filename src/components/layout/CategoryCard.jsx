@@ -1,15 +1,17 @@
 import Link from "next/link";
 import { categoryIcons } from "@/lib/categoryIcons";
+import { getCategoryColor } from "@/lib/categoryColors";
 import { HelpCircle } from "lucide-react";
 import ForumIcon from "./ForumIcon";
 
 export default function CategoryCard({ category }) {
   const Icon = categoryIcons[category.slug];
+  const colors = getCategoryColor(category.slug);
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       <Link href={`/categorias/${category.slug}`}>
         <div className="relative flex items-center justify-center gap-2 px-3 py-3">
-          <span className="text-slate-600">
+          <span className={colors.icon}>
             {Icon ? (
               <Icon className="h-4 w-4" />
             ) : (
@@ -19,7 +21,7 @@ export default function CategoryCard({ category }) {
           <h3 className="text-base font-semibold text-slate-800 antialiased">
             {category.name}
           </h3>
-          <div className="absolute right-4 bottom-0 left-4 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
+          <div className={`absolute right-4 bottom-0 left-4 h-0.5 rounded-full bg-linear-to-r ${colors.line}`} />
         </div>
       </Link>
 
@@ -28,7 +30,7 @@ export default function CategoryCard({ category }) {
           <div
             key={index}
             href={forum.url}
-            className={`flex items-center gap-2 px-3 py-2.5 transition-colors hover:bg-blue-50 md:py-2 ${
+            className={`flex items-center gap-2 px-3 py-2.5 transition-colors ${colors.hoverBg} md:py-2 ${
               index !== 0 ? "border-t border-slate-100" : ""
             }`}
           >

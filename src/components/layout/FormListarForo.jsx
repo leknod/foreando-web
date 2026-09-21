@@ -65,7 +65,7 @@ export default function FormListarForo() {
         subtitle="Comparte tu comunidad con miles de usuarios"
       />
 
-      <div className="mx-auto max-w-xl px-6 py-12 sm:py-16">
+      <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
         {isSubmitted ? (
           <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg sm:p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
@@ -75,8 +75,7 @@ export default function FormListarForo() {
               Solicitud enviada
             </h2>
             <p className="mt-3 text-gray-600">
-              Hemos recibido tu solicitud correctamente. Revisaremos los datos y
-              te notificaremos cuando tu foro sea publicado.
+              ¡Gracias por tu solicitud! La revisaremos y, en cuanto esté todo validado, la publicaremos en el directorio.
             </p>
             <a
               href="/"
@@ -161,25 +160,6 @@ export default function FormListarForo() {
                     {formData.descripcion.length}/150
                   </span>
                 </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="descripcionLarga"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
-                >
-                  <Sparkles className="h-4 w-4 text-blue-500" />
-                  Descripción detallada (página del foro)
-                </label>
-                <textarea
-                  id="descripcionLarga"
-                  name="descripcionLarga"
-                  value={formData.descripcionLarga}
-                  onChange={handleChange}
-                  rows={5}
-                  placeholder="Opcional: Si no proporcionas una descripción, se generará una automáticamente para la página de tu foro."
-                  className="w-full resize-y rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
-                />
               </div>
 
               <p className="text-left text-xs text-gray-500">

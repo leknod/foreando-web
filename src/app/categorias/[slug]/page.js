@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/layout/Hero";
 import ForumCard from "@/components/layout/ForumCard";
 import { categoryIcons } from "@/lib/categoryIcons";
+import { getCategoryColor } from "@/lib/categoryColors";
 
 export const revalidate = 3600;
 
@@ -63,10 +64,11 @@ export default async function Page({ params }) {
   }));
 
   const Icon = categoryIcons[category.slug];
+  const colors = getCategoryColor(category.slug);
 
   return (
     <>
-      <Hero title={category.name} subtitle={category.description} Icon={Icon} />
+      <Hero title={category.name} subtitle={category.description} Icon={Icon} iconColorClass={colors.icon} />
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {forumsWithCategory.map((forum, index) => (
           <ForumCard key={forum.id} forum={forum} index={index} />

@@ -1,4 +1,4 @@
-export default function Hero({ title, subtitle, url, category, Icon }) {
+export default function Hero({ title, subtitle, url, category, Icon, iconColorClass, categoryPillClass, categoryDotClass }) {
   return (
     <section className="relative overflow-hidden bg-linear-to-b from-slate-50 via-blue-50 to-slate-200">
       <div className="absolute inset-0 overflow-hidden">
@@ -18,14 +18,14 @@ export default function Hero({ title, subtitle, url, category, Icon }) {
         {Icon && (
           <div className="flex justify-center">
             <Icon
-              className="h-22.5 w-22.5 rounded-xl bg-white p-5 text-blue-600 shadow shadow-blue-500/15"
+              className={`h-22.5 w-22.5 rounded-xl bg-white p-5 ${iconColorClass || "text-blue-600"} shadow shadow-blue-500/15`}
               title={category}
             />
           </div>
         )}
         {category && (
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-sm text-neutral-500 shadow shadow-blue-500/15">
-            {/* <span className="flex h-2 w-2 animate-pulse rounded-full bg-blue-500" /> */}
+          <div className={`mt-4 inline-flex items-center gap-2 rounded-full border bg-white/80 px-3 py-1 text-sm shadow-2xs ${categoryPillClass || "border-slate-200 text-neutral-500"}`}>
+            <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${categoryDotClass || "bg-slate-400"}`} />
             {`Categoría: ${category}`}
           </div>
         )}

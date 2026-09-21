@@ -46,7 +46,7 @@ export default function FormContacto() {
         subtitle="¿Tienes alguna duda o sugerencia? Escríbenos"
       />
 
-      <div className="mx-auto max-w-xl px-6 py-12 sm:py-16">
+      <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
         {isSubmitted ? (
           <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg sm:p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
@@ -56,8 +56,7 @@ export default function FormContacto() {
               Mensaje enviado
             </h2>
             <p className="mt-3 text-gray-600">
-              Hemos recibido tu mensaje correctamente. Te responderemos lo antes
-              posible al correo proporcionado.
+              ¡Gracias por escribirnos! Ya tenemos tu mensaje y te contestamos enseguida.
             </p>
             <button
               onClick={() => {

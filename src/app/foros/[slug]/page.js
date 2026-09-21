@@ -2,6 +2,7 @@ import { sql } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Hero from "@/components/layout/Hero";
 import { categoryIcons } from "@/lib/categoryIcons";
+import { getCategoryColor } from "@/lib/categoryColors";
 import ForumCard from "@/components/layout/ForumCard";
 import { HelpCircle } from "lucide-react";
 
@@ -76,6 +77,7 @@ export default async function Page({ params }) {
   }));
 
   const Icon = categoryIcons[forum.categories?.slug] || HelpCircle;
+  const colors = getCategoryColor(forum.categories?.slug);
 
   return (
     <>
@@ -83,7 +85,10 @@ export default async function Page({ params }) {
         title={forum.name}
         subtitle={forum.short_description}
         Icon={Icon}
+        iconColorClass={colors.icon}
         category={forum.categories?.name}
+        categoryPillClass={colors.pillStatic}
+        categoryDotClass={colors.dot}
         url={forum.url}
       />
 

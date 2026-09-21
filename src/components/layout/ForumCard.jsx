@@ -2,12 +2,14 @@ import Link from "next/link";
 import Button from "./Button";
 import ForumIcon from "./ForumIcon";
 import DrBadge from "./DrBadge";
+import { getCategoryColor } from "@/lib/categoryColors";
 
 export default function ForumCard({ forum, index }) {
   const categoryName =
     forum.categories?.name || forum.category_name || forum.category;
   const categorySlug =
     forum.categories?.slug || forum.category_slug;
+  const colors = getCategoryColor(categorySlug);
 
   return (
     <article className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 pt-8 shadow-md transition-all duration-300 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/10">
@@ -47,14 +49,14 @@ export default function ForumCard({ forum, index }) {
             {categorySlug ? (
               <Link
                 href={`/categorias/${categorySlug}`}
-                className="inline-flex max-w-full items-center gap-1 rounded-full border border-blue-200 bg-blue-50/90 px-2.5 py-0.5 text-[11px] font-medium text-blue-700/60 shadow-2xs backdrop-blur-xs transition-colors hover:border-blue-300 hover:bg-blue-100 hover:text-blue-800"
+                className={`inline-flex max-w-full items-center gap-1 rounded-full border px-2.5 py-0.5 text-[11px] font-medium shadow-2xs backdrop-blur-xs transition-colors ${colors.pill}`}
               >
-                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
+                <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${colors.dot}`} />
                 <span className="truncate">{categoryName}</span>
               </Link>
             ) : (
-              <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50/90 px-2.5 py-0.5 text-xs font-medium text-blue-700 shadow-2xs">
-                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500/80" />
+              <span className={`inline-flex max-w-full items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium shadow-2xs ${colors.pillStatic}`}>
+                <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${colors.dot}/80`} />
                 <span className="truncate">{categoryName}</span>
               </span>
             )}
