@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
-import { openSans, poppins } from "@/lib/fonts";
+import { geistMono, geistSans } from "@/lib/fonts";
 
 export const metadata = {
   title: {
@@ -27,9 +27,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body
-        className={`bg-surface text-foreground ${openSans.className} ${poppins.variable} antialiased`}
+        className={`bg-surface text-foreground ${geistSans.className} antialiased`}
       >
         <Header />
         <main>{children}</main>

@@ -1,5 +1,3 @@
-import { poppins } from "@/lib/fonts";
-
 export default function Logo({
   on = "light",
   className = "",
@@ -29,7 +27,7 @@ export default function Logo({
         <path d="M18 29L9 38V29.0469L18 29Z" fill="white" />
       </svg>
       <span
-        className={`${textSize} font-bold tracking-tight ${textClass} ${poppins.className}`}
+        className={`${textSize} font-bold tracking-tight ${textClass}`}
       >
         foreando
       </span>

@@ -4,12 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "../brand/Logo";
 import MobileMenu from "./MobileMenu";
-import { poppins } from "@/lib/fonts";
 import { Menu } from "lucide-react";
 import Button from "./Button";
 
 const navLinks = [
-  { label: "Lista completa", href: "/foros" },
+  { label: "Todos los foros", href: "/foros" },
   { label: "Categorías", href: "/categorias" },
 ];
 
@@ -30,9 +29,9 @@ export default function Header() {
   return (
     <>
       <header
-        className={`${poppins.className} sticky top-0 z-50 w-full bg-white antialiased shadow-[0_4px_20px_rgba(59,130,246,0.25)]`}
+        className="sticky top-0 z-50 w-full bg-white antialiased shadow-[0_4px_20px_rgba(59,130,246,0.25)]"
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-18">
           <Link href={"/"}>
             <Logo />
           </Link>
@@ -41,7 +40,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+                className="text-base font-medium text-gray-600 transition-colors hover:text-gray-900"
               >
                 {link.label}
               </Link>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Logo from "../brand/Logo";
-import { poppins } from "@/lib/fonts";
 
 const footerLinks = {
   destacado: [
@@ -35,7 +34,7 @@ export default function Footer() {
           </div>
           <div>
             <h3
-              className={`mb-4 text-sm font-semibold ${poppins.className} tracking-wider text-white uppercase`}
+              className="mb-4 text-sm font-semibold tracking-wider text-white uppercase"
             >
               Destacado
             </h3>
@@ -55,7 +54,7 @@ export default function Footer() {
 
           <div>
             <h3
-              className={`mb-4 text-sm font-semibold ${poppins.className} tracking-wider text-white uppercase`}
+              className="mb-4 text-sm font-semibold tracking-wider text-white uppercase"
             >
               Sobre nosotros
             </h3>
@@ -75,7 +74,7 @@ export default function Footer() {
 
           <div>
             <h3
-              className={`mb-4 text-sm font-semibold ${poppins.className} tracking-wider text-white uppercase`}
+              className="mb-4 text-sm font-semibold tracking-wider text-white uppercase"
             >
               Legal
             </h3>

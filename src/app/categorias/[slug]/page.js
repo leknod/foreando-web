@@ -51,11 +51,16 @@ export default async function Page({ params }) {
   }
 
   const forums = await sql`
-    SELECT id, name, short_description, url, icon, slug
+    SELECT id, name, short_description, url, slug, ahrefs_dr
     FROM forums
     WHERE category_id = ${category.id}
     ORDER BY sort_order DESC NULLS LAST
   `;
+
+  const forumsWithCategory = forums.map((forum) => ({
+    ...forum,
+    categories: { name: category.name, slug: category.slug },
+  }));
 
   const Icon = categoryIcons[category.slug];
 
@@ -63,7 +68,7 @@ export default async function Page({ params }) {
     <>
       <Hero title={category.name} subtitle={category.description} Icon={Icon} />
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {forums.map((forum, index) => (
+        {forumsWithCategory.map((forum, index) => (
           <ForumCard key={forum.id} forum={forum} index={index} />
         ))}
       </div>

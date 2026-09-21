@@ -16,7 +16,7 @@ export default async function Home() {
   const categoriesWithForums = await Promise.all(
     categories.map(async (category) => {
       const forums = await sql`
-        SELECT id, name, slug, icon
+        SELECT id, name, slug, url
         FROM forums
         WHERE category_id = ${category.id}
         ORDER BY sort_order DESC NULLS LAST

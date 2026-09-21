@@ -7,16 +7,17 @@ import {
   MessageSquare,
   Globe,
   FileText,
+  Sparkles,
   Send,
   CheckCircle,
 } from "lucide-react";
-import { poppins } from "@/lib/fonts";
 
 export default function FormListarForo() {
   const [formData, setFormData] = useState({
     nombre: "",
     url: "",
     descripcion: "",
+    descripcionLarga: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +38,12 @@ export default function FormListarForo() {
       }
 
       setIsSubmitted(true);
-      setFormData({ nombre: "", url: "", descripcion: "" });
+      setFormData({
+        nombre: "",
+        url: "",
+        descripcion: "",
+        descripcionLarga: "",
+      });
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       alert("Hubo un problema al enviar el formulario. Inténtalo de nuevo.");
@@ -91,7 +97,7 @@ export default function FormListarForo() {
                   className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
                 >
                   <MessageSquare className="h-4 w-4 text-blue-500" />
-                  Nombre del foro
+                  Nombre del foro <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -111,7 +117,7 @@ export default function FormListarForo() {
                   className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
                 >
                   <Globe className="h-4 w-4 text-blue-500" />
-                  URL del foro
+                  URL del foro<span className="text-red-500">*</span>
                 </label>
                 <input
                   type="url"
@@ -126,37 +132,65 @@ export default function FormListarForo() {
               </div>
 
               <div>
-                <label
-                  htmlFor="descripcion"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
-                >
-                  <FileText className="h-4 w-4 text-blue-500" />
-                  Breve descripcion
-                </label>
+                <div className="mb-2 flex items-center justify-between">
+                  <label
+                    htmlFor="descripcion"
+                    className="flex items-center gap-2 text-sm font-medium text-gray-900"
+                  >
+                    <FileText className="h-4 w-4 text-blue-500" />
+                    Breve descripción (tarjetas) <span className="text-red-500">*</span>
+                  </label>
+                </div>
                 <textarea
                   id="descripcion"
                   name="descripcion"
                   value={formData.descripcion}
                   onChange={handleChange}
                   required
-                  rows={4}
-                  placeholder="Describe brevemente de que trata tu foro..."
+                  rows={3}
+                  placeholder="Describe brevemente de qué trata tu foro para los listados..."
                   className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
                 />
-                <div className="mt-2 flex justify-end">
+                <div className="mt-1.5 flex items-center justify-between">
+                  <span className="text-xs text-gray-400">
+                    Máximo 150 caracteres
+                  </span>
                   <span
-                    className={`text-xs ${formData.descripcion.length >= 140 ? "text-amber-600" : "text-gray-400"}`}
+                    className={`text-xs font-mono ${formData.descripcion.length >= 140 ? "text-amber-600" : "text-gray-400"}`}
                   >
-                    {formData.descripcion.length}/150 caracteres
+                    {formData.descripcion.length}/150
                   </span>
                 </div>
               </div>
+
+              <div>
+                <label
+                  htmlFor="descripcionLarga"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
+                >
+                  <Sparkles className="h-4 w-4 text-blue-500" />
+                  Descripción detallada (página del foro)
+                </label>
+                <textarea
+                  id="descripcionLarga"
+                  name="descripcionLarga"
+                  value={formData.descripcionLarga}
+                  onChange={handleChange}
+                  rows={5}
+                  placeholder="Opcional: Si no proporcionas una descripción, se generará una automáticamente para la página de tu foro."
+                  className="w-full resize-y rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+
+              <p className="text-left text-xs text-gray-500">
+                <span className="font-semibold text-red-500">*</span> Campos obligatorios
+              </p>
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className={`${poppins.className} mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70`}
+              className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isLoading ? (
                 <>
@@ -191,8 +225,11 @@ export default function FormListarForo() {
 
             <p className="mt-6 text-center text-xs text-gray-500">
               Al enviar este formulario aceptas nuestros{" "}
-              <a href="#" className="text-blue-500 hover:underline">
-                terminos y condiciones.
+              <a
+                href="/terminos-de-uso"
+                className="text-blue-500 hover:underline"
+              >
+                términos y condiciones.
               </a>
             </p>
           </form>

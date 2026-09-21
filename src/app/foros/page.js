@@ -16,8 +16,8 @@ export default async function Page() {
   let forums;
   try {
     forums = await sql`
-      SELECT f.id, f.name, f.short_description, f.url, f.icon, f.slug,
-             c.name AS category_name
+      SELECT f.id, f.name, f.short_description, f.url, f.slug, f.ahrefs_dr,
+             c.name AS category_name, c.slug AS category_slug
       FROM forums f
       LEFT JOIN categories c ON c.id = f.category_id
       WHERE f.featured = false AND f.status = 'approved'
@@ -28,10 +28,10 @@ export default async function Page() {
     return <p>Error cargando foros</p>;
   }
 
-  // Reshape to match the previous { categories: { name } } structure
+  // Reshape to match the previous { categories: { name, slug } } structure
   const forumsWithCategories = forums.map((forum) => ({
     ...forum,
-    categories: { name: forum.category_name },
+    categories: { name: forum.category_name, slug: forum.category_slug },
   }));
 
   return (

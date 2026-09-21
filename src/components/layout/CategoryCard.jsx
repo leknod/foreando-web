@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { poppins } from "@/lib/fonts";
 import { categoryIcons } from "@/lib/categoryIcons";
 import { HelpCircle } from "lucide-react";
+import ForumIcon from "./ForumIcon";
 
 export default function CategoryCard({ category }) {
   const Icon = categoryIcons[category.slug];
@@ -16,9 +16,7 @@ export default function CategoryCard({ category }) {
               <HelpCircle className="h-4 w-4" />
             )}{" "}
           </span>
-          <h3
-            className={`${poppins.className} text-base font-semibold text-slate-800 antialiased`}
-          >
+          <h3 className="text-base font-semibold text-slate-800 antialiased">
             {category.name}
           </h3>
           <div className="absolute right-4 bottom-0 left-4 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
@@ -34,13 +32,14 @@ export default function CategoryCard({ category }) {
               index !== 0 ? "border-t border-slate-100" : ""
             }`}
           >
-            <span className="w-5 text-xs font-medium text-slate-400">
+            <span className="w-5 text-xs font-medium font-mono text-slate-400">
               {index + 1}.
             </span>
-            <Link href={`/foros/${forum.slug}`} className="flex gap-2">
-              <span className="flex h-5 w-5 items-center justify-center rounded bg-slate-100 text-xs">
-                <img src={`/icons/${forum.icon}`} alt="" />
-              </span>
+            <Link
+              href={`/foros/${forum.slug}`}
+              className="flex min-w-0 items-center gap-2"
+            >
+              <ForumIcon url={forum.url} name={forum.name} size="sm" />
               <span className="truncate text-sm font-medium text-slate-700">
                 {forum.name}
               </span>

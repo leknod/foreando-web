@@ -5,10 +5,12 @@ export default async function FeaturedSection() {
   let featuredForums;
   try {
     featuredForums = await sql`
-      SELECT id, name, short_description, url, icon, slug
-      FROM forums
-      WHERE featured = true AND status = 'approved'
-      ORDER BY sort_order DESC NULLS LAST
+      SELECT f.id, f.name, f.short_description, f.url, f.slug, f.ahrefs_dr,
+             c.name AS category_name, c.slug AS category_slug
+      FROM forums f
+      LEFT JOIN categories c ON c.id = f.category_id
+      WHERE f.featured = true AND f.status = 'approved'
+      ORDER BY f.sort_order DESC NULLS LAST
       LIMIT 4
     `;
   } catch (error) {
@@ -16,9 +18,14 @@ export default async function FeaturedSection() {
     return <p>Error cargando foros</p>;
   }
 
+  const featuredForumsWithCategories = featuredForums.map((forum) => ({
+    ...forum,
+    categories: { name: forum.category_name, slug: forum.category_slug },
+  }));
+
   return (
     <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {featuredForums.map((featuredForum, index) => (
+      {featuredForumsWithCategories.map((featuredForum, index) => (
         <FeaturedForumCard
           key={featuredForum.id}
           forum={featuredForum}

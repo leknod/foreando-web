@@ -3,7 +3,6 @@
 import Hero from "@/components/layout/Hero";
 import { useState } from "react";
 import { User, Mail, MessageSquare, Send, CheckCircle } from "lucide-react";
-import { poppins } from "@/lib/fonts";
 
 export default function FormContacto() {
   const [formData, setFormData] = useState({
@@ -136,7 +135,7 @@ export default function FormContacto() {
                 />
                 <div className="mt-2 flex justify-end">
                   <span
-                    className={`text-xs ${formData.mensaje.length >= 450 ? "text-amber-600" : "text-gray-400"}`}
+                    className={`text-xs font-mono ${formData.mensaje.length >= 450 ? "text-amber-600" : "text-gray-400"}`}
                   >
                     {formData.mensaje.length}/500 caracteres
                   </span>
@@ -147,7 +146,7 @@ export default function FormContacto() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`${poppins.className} mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70`}
+              className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isLoading ? (
                 <>

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "sync:dr": "node sync-ahrefs-dr.mjs"
   },
   "dependencies": {
     "@neon/config": "^1.7.2",

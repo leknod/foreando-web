@@ -1,5 +1,3 @@
-import { poppins } from "@/lib/fonts";
-
 export default function Hero({ title, subtitle, url, category, Icon }) {
   return (
     <section className="relative overflow-hidden bg-linear-to-b from-slate-50 via-blue-50 to-slate-200">
@@ -32,7 +30,7 @@ export default function Hero({ title, subtitle, url, category, Icon }) {
           </div>
         )}
         <h1
-          className={`${poppins.className} mt-4 text-3xl font-bold tracking-tight text-balance text-gray-900 antialiased sm:text-4xl lg:text-5xl`}
+          className="mt-4 text-3xl font-bold tracking-tight text-balance text-gray-900 antialiased sm:text-4xl lg:text-5xl"
         >
           {title}
         </h1>
@@ -49,7 +47,7 @@ export default function Hero({ title, subtitle, url, category, Icon }) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${poppins.className} inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white antialiased shadow-sm transition-all duration-200 hover:gap-3 hover:from-blue-600 hover:to-blue-700 hover:shadow-md`}
+              className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-medium text-white antialiased shadow-sm transition-all duration-200 hover:gap-3 hover:from-blue-600 hover:to-blue-700 hover:shadow-md"
             >
               <svg
                 className="h-4 w-4"
