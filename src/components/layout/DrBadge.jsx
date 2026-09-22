@@ -72,20 +72,20 @@ export default function DrBadge({ dr, variant = "corner" }) {
         aria-label={`Domain Rating: ${dr} (Ahrefs)`}
         className={
           variant === "corner"
-            ? "flex cursor-default select-none items-center gap-1 rounded-bl-xl bg-linear-to-l from-blue-50 to-slate-100 px-3 py-1.5 font-mono text-xs font-bold shadow-sm"
-            : "flex cursor-default select-none items-center gap-1 rounded-full border border-blue-200 bg-blue-50/90 px-2 py-0.5 font-mono text-[11px] font-bold shadow-2xs"
+            ? "flex cursor-default select-none items-center gap-1 rounded-bl-xl bg-linear-to-l from-badge-dr-from to-badge-dr-to px-3 py-1.5 font-mono text-xs font-bold shadow-sm"
+            : "flex cursor-default select-none items-center gap-1 rounded-full border border-primary-soft-border bg-primary-soft/90 px-2 py-0.5 font-mono text-[11px] font-bold shadow-2xs"
         }
       >
         <span
           className={
             variant === "corner"
-              ? "text-[10px] font-semibold uppercase tracking-wider text-slate-400"
-              : "text-[9px] font-semibold uppercase tracking-wider text-slate-400"
+              ? "text-[10px] font-semibold uppercase tracking-wider text-foreground-subtle"
+              : "text-[9px] font-semibold uppercase tracking-wider text-foreground-subtle"
           }
         >
           DR
         </span>
-        <span className="text-blue-600/80">{dr}</span>
+        <span className="text-badge-dr-text">{dr}</span>
       </button>
 
       {/* Tooltip / Popover flotante */}

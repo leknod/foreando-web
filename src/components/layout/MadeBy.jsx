@@ -1,6 +1,6 @@
 export default function MadeBy() {
   return (
-    <span className="flex items-center gap-1.5 text-xs text-gray-500">
+    <span className="flex items-center gap-1.5 text-xs text-foreground-subtle">
       Hecho con{" "}
       <svg
         xmlns="http://www.w3.org/2000/svg"

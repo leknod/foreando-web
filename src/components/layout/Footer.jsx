@@ -22,19 +22,19 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-dark text-white">
+    <footer className="bg-footer-bg text-footer-foreground">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <Logo imgWidth="w-10" textSize="text-2xl" on="dark" />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-footer-muted">
               Directorio de foros y comunidades online en español. Encuentra tu
               comunidad y conecta con personas que comparten tus intereses.
             </p>
           </div>
           <div>
             <h3
-              className="mb-4 text-sm font-semibold tracking-wider text-white uppercase"
+              className="mb-4 text-sm font-semibold tracking-wider text-footer-foreground uppercase"
             >
               Destacado
             </h3>
@@ -43,7 +43,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary text-sm text-gray-400 transition-colors"
+                    className="hover:text-primary text-sm text-footer-muted transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
 
           <div>
             <h3
-              className="mb-4 text-sm font-semibold tracking-wider text-white uppercase"
+              className="mb-4 text-sm font-semibold tracking-wider text-footer-foreground uppercase"
             >
               Sobre nosotros
             </h3>
@@ -63,7 +63,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary text-sm text-gray-400 transition-colors"
+                    className="hover:text-primary text-sm text-footer-muted transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
 
           <div>
             <h3
-              className="mb-4 text-sm font-semibold tracking-wider text-white uppercase"
+              className="mb-4 text-sm font-semibold tracking-wider text-footer-foreground uppercase"
             >
               Legal
             </h3>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary text-sm text-gray-400 transition-colors"
+                    className="hover:text-primary text-sm text-footer-muted transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -93,8 +93,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-sm text-gray-500">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-footer-border pt-8 md:flex-row">
+          <p className="text-sm text-footer-muted/70">
             © {new Date().getFullYear()} Foreando. Todos los derechos
             reservados.
           </p>

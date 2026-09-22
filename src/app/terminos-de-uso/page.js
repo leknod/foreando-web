@@ -18,10 +18,10 @@ export default function TerminosUso() {
   return (
     <>
       <Hero title="Términos de uso" />
-      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
+      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-foreground-secondary">
         <h2>1. Aceptación</h2>
         <p>
-          El acceso y uso de Foreando (en adelante, "el Sitio Web") implica la
+          El acceso y uso de Foreando (en adelante, &quot;el Sitio Web&quot;) implica la
           aceptación plena y sin reservas de los presentes términos de uso. Si
           no estás de acuerdo con alguno de ellos, te rogamos que te abstengas
           de utilizar el Sitio Web.

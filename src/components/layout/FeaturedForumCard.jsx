@@ -12,8 +12,8 @@ export default function FeaturedForumCard({ forum, index }) {
   const colors = getCategoryColor(categorySlug);
 
   return (
-    <article className="group relative h-full overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/30">
-      <div className="relative flex items-center justify-center gap-1.5 border-b border-blue-100 bg-linear-to-r from-blue-50 via-white to-blue-50 py-2">
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-primary-soft-border bg-card shadow-lg shadow-blue-500/20 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-blue-500/30">
+      <div className="relative flex items-center justify-center gap-1.5 border-b border-primary-soft-border bg-linear-to-r from-primary-soft via-card to-primary-soft py-2">
         <svg className="h-4 w-4" viewBox="0 0 20 20">
           <defs>
             <linearGradient
@@ -33,7 +33,7 @@ export default function FeaturedForumCard({ forum, index }) {
             d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
           />
         </svg>
-        <span className="bg-linear-to-r from-blue-500 to-blue-600 bg-clip-text text-sm font-semibold text-transparent antialiased">
+        <span className="bg-linear-to-r from-primary to-primary-hover bg-clip-text text-sm font-semibold text-transparent antialiased">
           Destacado
         </span>
 
@@ -50,16 +50,16 @@ export default function FeaturedForumCard({ forum, index }) {
             <ForumIcon url={forum.url} name={forum.name} />
             <div className="flex items-center gap-1.5">
               <div className="relative">
-                <h3 className="text-base font-semibold text-slate-800 antialiased">
+                <h3 className="text-base font-semibold text-foreground antialiased">
                   {forum.name}
                 </h3>
-                <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
+                <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-primary/70 via-primary to-primary-hover" />
               </div>
             </div>
           </div>
         </Link>
 
-        <p className="mb-4 line-clamp-4 text-xs leading-relaxed text-slate-500">
+        <p className="mb-4 line-clamp-4 text-xs leading-relaxed text-foreground-muted">
           {`« ${forum.short_description} »`}
         </p>
 

@@ -51,7 +51,7 @@ export default function ForumsList({ initialForums }) {
             <ForumCard key={forum.id} forum={forum} index={index} />
           ))
         ) : (
-          <div className="col-span-full py-12 text-center text-slate-500">
+          <div className="col-span-full py-12 text-center text-foreground-muted">
             No se encontraron foros que coincidan con{" "}
             {searchQuery ? `"${searchQuery}"` : "la categoría seleccionada"}.
           </div>

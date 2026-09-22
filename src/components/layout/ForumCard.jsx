@@ -12,9 +12,9 @@ export default function ForumCard({ forum, index }) {
   const colors = getCategoryColor(categorySlug);
 
   return (
-    <article className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 pt-8 shadow-md transition-all duration-300 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/10">
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 pt-8 shadow-md transition-all duration-300 hover:border-primary-soft-border hover:shadow-lg hover:shadow-blue-500/10">
       <div className="absolute top-0 left-0">
-        <div className="text-foreground rounded-br-xl bg-linear-to-r from-slate-100 to-slate-200 px-3 py-1.5 text-xs font-bold font-mono shadow-sm">
+        <div className="text-foreground rounded-br-xl bg-linear-to-r from-badge-rank-from to-badge-rank-to px-3 py-1.5 text-xs font-bold font-mono shadow-sm">
           #{index + 1}
         </div>
       </div>
@@ -31,16 +31,16 @@ export default function ForumCard({ forum, index }) {
             <ForumIcon url={forum.url} name={forum.name} />
             <div className="flex items-center gap-1.5">
               <div className="relative">
-                <h3 className="text-base font-semibold text-slate-800 antialiased">
+                <h3 className="text-base font-semibold text-foreground antialiased">
                   {forum.name}
                 </h3>
-                <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-blue-400 via-blue-500 to-blue-600" />
+                <div className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-linear-to-r from-primary/70 via-primary to-primary-hover" />
               </div>
             </div>
           </div>
         </Link>
 
-        <p className="mb-4 line-clamp-4 text-xs leading-relaxed text-slate-500">
+        <p className="mb-4 line-clamp-4 text-xs leading-relaxed text-foreground-muted">
           {`« ${forum.short_description} »`}
         </p>
 

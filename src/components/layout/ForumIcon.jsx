@@ -14,16 +14,16 @@ export default function ForumIcon({
   const isSmall = size === "sm";
 
   const containerClasses = isSmall
-    ? "flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded border border-slate-200 bg-slate-50"
-    : "flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-linear-to-br from-slate-50 to-slate-100";
+    ? "flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-card-muted"
+    : "flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-card-muted";
 
   const imgClasses = isSmall
     ? "h-3.5 w-3.5 object-contain"
     : "h-6 w-6 object-contain";
 
   const textClasses = isSmall
-    ? "text-[11px] font-bold leading-none bg-linear-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent select-none"
-    : "text-xl font-bold leading-none bg-linear-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent select-none";
+    ? "text-[11px] font-bold leading-none bg-linear-to-r from-primary to-primary-hover bg-clip-text text-transparent select-none"
+    : "text-xl font-bold leading-none bg-linear-to-r from-primary to-primary-hover bg-clip-text text-transparent select-none";
 
   let hostname = "";
   let apexDomain = "";

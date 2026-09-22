@@ -18,7 +18,7 @@ export default function PoliticaCookies() {
   return (
     <>
       <Hero title="Política de cookies" />
-      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
+      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-foreground-secondary">
         <h2>1. ¿Qué son las cookies?</h2>
         <p>
           Las cookies son pequeños archivos de texto que se almacenan en el

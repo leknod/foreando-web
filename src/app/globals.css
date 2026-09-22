@@ -4,33 +4,100 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  --color-surface: #fafafa;
-  --color-surface-dark: #0f1419;
+  /* Superficies y Fondos */
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-card-muted: var(--card-muted);
+  --color-card-hover: var(--card-hover);
 
-  --color-foreground: #222222;
-  --color-muted: #5a5b63;
-  --color-foreground-dark: #ffffff;
-  --color-muted-dark: #99a1af;
+  /* Textos / Tipografía */
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
 
-  --color-primary: #3b82f6;
-  --color-primary-soft: #dce7ff;
+  /* Bordes y Divisores */
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-divider: var(--divider);
+
+  /* Marca / Primario */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-border: var(--primary-soft-border);
+
+  /* Badges & Rankings */
+  --color-badge-rank-from: var(--badge-rank-from);
+  --color-badge-rank-to: var(--badge-rank-to);
+  --color-badge-dr-from: var(--badge-dr-from);
+  --color-badge-dr-to: var(--badge-dr-to);
+  --color-badge-dr-text: var(--badge-dr-text);
+
+  /* Footer semántico */
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-border: var(--footer-border);
+
+  /* Compatibilidad */
+  --color-surface: var(--background);
+  --color-surface-dark: var(--footer-bg);
+}
+
+:root {
+  /* Valores exactos actuales del tema claro */
+  --background: #fafafa;
+  --card: #ffffff;
+  --card-muted: #f8fafc;
+  --card-hover: #f1f5f9;
+
+  --foreground: #0f172a;
+  --foreground-secondary: #334155;
+  --foreground-muted: #64748b;
+  --foreground-subtle: #94a3b8;
+
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --divider: #cbd5e1;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-active: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --primary-soft: #eff6ff;
+  --primary-soft-border: #bfdbfe;
+
+  /* Badges de ranking y DR */
+  --badge-rank-from: #f1f5f9;
+  --badge-rank-to: #e2e8f0;
+  --badge-dr-from: #eff6ff;
+  --badge-dr-to: #f1f5f9;
+  --badge-dr-text: rgba(37, 99, 235, 0.85);
+
+  --footer-bg: #0f1419;
+  --footer-foreground: #ffffff;
+  --footer-muted: #9ca3af;
+  --footer-border: rgba(255, 255, 255, 0.1);
 }
 
 .long-description h2,
 .legal h2 {
-  @apply mt-8 mb-4 text-2xl font-bold text-slate-900;
+  @apply mt-8 mb-4 text-2xl font-bold text-foreground;
   font-family: var(--font-sans);
 }
 
 .long-description h3,
 .legal h3 {
-  @apply mt-6 mb-3 text-xl font-semibold text-slate-800;
+  @apply mt-6 mb-3 text-xl font-semibold text-foreground-secondary;
   font-family: var(--font-sans);
 }
 
 .long-description p,
 .legal p {
-  @apply mb-4 leading-relaxed text-slate-700;
+  @apply mb-4 leading-relaxed text-foreground-secondary;
 }
 
 .long-description ul,
@@ -45,7 +112,7 @@
 
 .long-description li,
 .legal li {
-  @apply mb-1.5 leading-relaxed text-slate-700;
+  @apply mb-1.5 leading-relaxed text-foreground-secondary;
   list-style-type: disc;
 }
 
@@ -56,7 +123,7 @@
 
 .long-description strong,
 .legal strong {
-  @apply font-semibold text-slate-900;
+  @apply font-semibold text-foreground;
 }
 
 .long-description em,
@@ -66,7 +133,7 @@
 
 .long-description a,
 .legal a {
-  @apply text-blue-600 underline underline-offset-2 transition-colors hover:text-blue-800;
+  @apply text-primary underline underline-offset-2 transition-colors hover:text-primary-hover;
 }
 
 .long-description > *:first-child,

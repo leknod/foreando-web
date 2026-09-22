@@ -57,15 +57,15 @@ export default async function Home() {
         </div>
 
         <div className="relative mx-auto max-w-5xl px-6 py-24 text-center sm:py-32 lg:py-40">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-1.5 text-sm font-medium text-blue-700 shadow-sm backdrop-blur-sm">
-            <span className="flex h-2 w-2 animate-pulse rounded-full bg-blue-500" />
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-soft-border bg-card/80 px-4 py-1.5 text-sm font-medium text-primary shadow-sm backdrop-blur-sm">
+            <span className="flex h-2 w-2 animate-pulse rounded-full bg-primary" />
             El directorio de foros más completo
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl lg:text-6xl">
             Descubre los mejores{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="relative z-10 bg-linear-to-r from-primary to-primary-hover bg-clip-text text-transparent">
                 foros
               </span>
               <span className="absolute bottom-0.5 left-0 z-0 h-3 w-full -rotate-1 bg-blue-200/75" />
@@ -73,7 +73,7 @@ export default async function Home() {
             en español
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-gray-600 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-foreground-muted sm:text-xl">
             Explora cientos de foros activos sobre tecnología, gaming, deportes,
             hobbies y mucho más. Encuentra tu comunidad y conecta con personas
             que comparten tus intereses.
@@ -82,7 +82,7 @@ export default async function Home() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/foros"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-gray-900/20 transition-all hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl hover:shadow-gray-900/30"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-foreground px-8 py-3.5 text-base font-semibold text-background shadow-lg shadow-gray-900/20 transition-all hover:-translate-y-0.5 hover:opacity-90 hover:shadow-xl"
             >
               Explorar foros
               <svg
@@ -101,7 +101,7 @@ export default async function Home() {
             </Link>
             <Link
               href="/categorias"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-8 py-3.5 text-base font-semibold text-gray-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gray-400 hover:bg-gray-50"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-8 py-3.5 text-base font-semibold text-foreground-secondary shadow-sm transition-all hover:-translate-y-0.5 hover:bg-card-muted"
             >
               Ver categorías
             </Link>
@@ -111,13 +111,13 @@ export default async function Home() {
       <FeaturedSection />
       <div className="relative overflow-hidden">
         <div className="flex items-center justify-center gap-4">
-          <div className="h-px max-w-xs flex-1 bg-linear-to-r from-transparent via-slate-300 to-slate-300" />
+          <div className="h-px max-w-xs flex-1 bg-linear-to-r from-transparent via-divider to-divider" />
 
-          <span className="text-sm font-bold text-pretty text-gray-400 uppercase">
+          <span className="text-sm font-bold text-pretty text-foreground-subtle uppercase">
             Principales categorías
           </span>
 
-          <div className="h-px max-w-xs flex-1 bg-linear-to-l from-transparent via-slate-300 to-slate-300" />
+          <div className="h-px max-w-xs flex-1 bg-linear-to-l from-transparent via-divider to-divider" />
         </div>
       </div>
       <div className="mx-auto grid max-w-7xl gap-6 px-4 pt-8 pb-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -128,13 +128,13 @@ export default async function Home() {
       <div className="flex justify-center pb-18">
         <Link
           href="/categorias"
-          className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-3 shadow-sm ring-1 shadow-blue-100 ring-blue-200 transition-all hover:shadow-blue-500/20"
+          className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-card px-8 py-3 shadow-sm ring-1 ring-primary-soft-border transition-all hover:shadow-blue-500/20"
         >
-          <span className="bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text text-sm font-semibold text-transparent group-hover:from-blue-600 group-hover:to-indigo-600">
+          <span className="bg-linear-to-r from-foreground-secondary to-foreground-muted bg-clip-text text-sm font-semibold text-transparent group-hover:from-primary group-hover:to-primary-hover">
             Ver todas las categorías
           </span>
           <svg
-            className="h-4 w-4 text-gray-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-blue-500"
+            className="h-4 w-4 text-foreground-subtle transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -156,13 +156,13 @@ export default async function Home() {
 
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
               ¿Tienes un foro?{" "}
-              <span className="bg-linear-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary to-primary-hover bg-clip-text text-transparent">
                 Únete a nosotros
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-slate-600">
+            <p className="mx-auto max-w-2xl text-lg text-foreground-muted">
               Aumenta la visibilidad de tu comunidad y conecta con miles de
               usuarios hispanohablantes
             </p>
@@ -170,47 +170,47 @@ export default async function Home() {
 
           <div className="mb-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-                <TrendingUp className="h-7 w-7 text-blue-600" />
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                <TrendingUp className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-1 font-semibold text-slate-900">
+              <h3 className="mb-1 font-semibold text-foreground">
                 Más visibilidad
               </h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-foreground-muted">
                 Aparece en búsquedas y categorías relevantes
               </p>
             </div>
 
             <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-                <Users className="h-7 w-7 text-blue-600" />
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                <Users className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-1 font-semibold text-slate-900">
+              <h3 className="mb-1 font-semibold text-foreground">
                 Nuevos usuarios
               </h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-foreground-muted">
                 Atrae miembros activos interesados en tu temática
               </p>
             </div>
 
             <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-                <Zap className="h-7 w-7 text-blue-600" />
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                <Zap className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-1 font-semibold text-slate-900">
+              <h3 className="mb-1 font-semibold text-foreground">
                 Rápido y fácil
               </h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-foreground-muted">
                 Proceso de alta simple en menos de 2 minutos
               </p>
             </div>
 
             <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-                <Check className="h-7 w-7 text-blue-600" />
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                <Check className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-1 font-semibold text-slate-900">100% Gratis</h3>
-              <p className="text-sm text-slate-600">
+              <h3 className="mb-1 font-semibold text-foreground">100% Gratis</h3>
+              <p className="text-sm text-foreground-muted">
                 Listado básico gratuito, sin costes ocultos
               </p>
             </div>
@@ -219,20 +219,11 @@ export default async function Home() {
           <div className="text-center">
             <Link
               href="/listar-foro"
-              className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/40"
+              className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-primary to-primary-hover px-8 py-4 font-semibold text-primary-foreground shadow-lg shadow-blue-500/30 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/40"
             >
               <Zap className="h-5 w-5" />
               Listar mi foro ahora
             </Link>
-            {/*<p className="mt-4 text-sm text-slate-500">
-              ¿Quieres destacar aún más?{" "}
-              <Link
-                href="/planes"
-                className="text-blue-600 underline hover:text-blue-700"
-              >
-                Conoce nuestros planes premium
-              </Link>
-            </p>*/}
           </div>
         </div>
       </section>

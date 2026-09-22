@@ -18,7 +18,7 @@ export default function QuienesSomos() {
   return (
     <>
       <Hero title="Quiénes somos" />
-      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
+      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-foreground-secondary">
         <p>
           Foreando nació de una constatación evidente: encontrar foros y
           comunidades online en español activos seguía siendo más difícil de lo

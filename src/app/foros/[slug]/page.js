@@ -95,20 +95,20 @@ export default async function Page({ params }) {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           <main className="col-span-1 flex flex-col gap-8 rounded-2xl shadow-md lg:col-span-8">
-            <div className="long-description rounded-2xl border border-slate-100 bg-white p-6 text-slate-700 shadow-sm sm:p-10">
+            <div className="long-description rounded-2xl border border-border-subtle bg-card p-6 text-foreground-secondary shadow-sm sm:p-10">
               {forum.long_description ? (
                 <div
                   className="long-description"
                   dangerouslySetInnerHTML={{ __html: forum.long_description }}
                 />
               ) : (
-                <p className="text-slate-500">No hay descripción disponible.</p>
+                <p className="text-foreground-muted">No hay descripción disponible.</p>
               )}
             </div>
           </main>
 
           <aside className="col-span-1 lg:col-span-4">
-            <h3 className="mb-5 ml-1 text-xs font-bold tracking-[0.15em] text-slate-400 uppercase">
+            <h3 className="mb-5 ml-1 text-xs font-bold tracking-[0.15em] text-foreground-subtle uppercase">
               FOROS RELACIONADOS
             </h3>
 

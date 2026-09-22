@@ -2,6 +2,7 @@
 
 import Hero from "@/components/layout/Hero";
 import { useState } from "react";
+import Link from "next/link";
 
 import {
   MessageSquare,
@@ -67,35 +68,35 @@ export default function FormListarForo() {
 
       <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
         {isSubmitted ? (
-          <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg sm:p-12">
+          <div className="rounded-2xl border border-border-subtle bg-card p-8 text-center shadow-lg sm:p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
               <CheckCircle className="h-8 w-8 text-green-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-foreground">
               Solicitud enviada
             </h2>
-            <p className="mt-3 text-gray-600">
+            <p className="mt-3 text-foreground-muted">
               ¡Gracias por tu solicitud! La revisaremos y, en cuanto esté todo validado, la publicaremos en el directorio.
             </p>
-            <a
+            <Link
               href="/"
-              className="mt-8 inline-flex items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3 text-sm font-medium text-white transition-all hover:from-blue-600 hover:to-blue-700"
+              className="mt-8 inline-flex items-center justify-center rounded-lg bg-linear-to-r from-primary to-primary-hover px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:from-primary-hover hover:to-primary-active"
             >
               Volver al inicio
-            </a>
+            </Link>
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-gray-100 bg-white p-8 shadow-lg sm:p-10"
+            className="rounded-2xl border border-border-subtle bg-card p-8 shadow-lg sm:p-10"
           >
             <div className="space-y-6">
               <div>
                 <label
                   htmlFor="nombre"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground"
                 >
-                  <MessageSquare className="h-4 w-4 text-blue-500" />
+                  <MessageSquare className="h-4 w-4 text-primary" />
                   Nombre del foro <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -106,16 +107,16 @@ export default function FormListarForo() {
                   onChange={handleChange}
                   required
                   placeholder="Ej: ForoCoches, Mediavida..."
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-border bg-card-muted px-4 py-3 text-foreground placeholder-foreground-subtle transition-all outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="url"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground"
                 >
-                  <Globe className="h-4 w-4 text-blue-500" />
+                  <Globe className="h-4 w-4 text-primary" />
                   URL del foro<span className="text-red-500">*</span>
                 </label>
                 <input
@@ -126,7 +127,7 @@ export default function FormListarForo() {
                   onChange={handleChange}
                   required
                   placeholder="https://www.ejemplo.com"
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-border bg-card-muted px-4 py-3 text-foreground placeholder-foreground-subtle transition-all outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
@@ -134,9 +135,9 @@ export default function FormListarForo() {
                 <div className="mb-2 flex items-center justify-between">
                   <label
                     htmlFor="descripcion"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-900"
+                    className="flex items-center gap-2 text-sm font-medium text-foreground"
                   >
-                    <FileText className="h-4 w-4 text-blue-500" />
+                    <FileText className="h-4 w-4 text-primary" />
                     Breve descripción (tarjetas) <span className="text-red-500">*</span>
                   </label>
                 </div>
@@ -148,21 +149,21 @@ export default function FormListarForo() {
                   required
                   rows={3}
                   placeholder="Describe brevemente de qué trata tu foro para los listados..."
-                  className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full resize-none rounded-lg border border-border bg-card-muted px-4 py-3 text-foreground placeholder-foreground-subtle transition-all outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20"
                 />
                 <div className="mt-1.5 flex items-center justify-between">
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-foreground-subtle">
                     Máximo 150 caracteres
                   </span>
                   <span
-                    className={`text-xs font-mono ${formData.descripcion.length >= 140 ? "text-amber-600" : "text-gray-400"}`}
+                    className={`text-xs font-mono ${formData.descripcion.length >= 140 ? "text-amber-600" : "text-foreground-subtle"}`}
                   >
                     {formData.descripcion.length}/150
                   </span>
                 </div>
               </div>
 
-              <p className="text-left text-xs text-gray-500">
+              <p className="text-left text-xs text-foreground/70">
                 <span className="font-semibold text-red-500">*</span> Campos obligatorios
               </p>
             </div>
@@ -170,7 +171,7 @@ export default function FormListarForo() {
             <button
               type="submit"
               disabled={isLoading}
-              className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
+              className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-primary to-primary-hover px-6 py-3.5 text-sm font-medium text-primary-foreground antialiased transition-all hover:from-primary-hover hover:to-primary-active disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isLoading ? (
                 <>
@@ -203,11 +204,11 @@ export default function FormListarForo() {
               )}
             </button>
 
-            <p className="mt-6 text-center text-xs text-gray-500">
+            <p className="mt-6 text-center text-xs text-foreground/70">
               Al enviar este formulario aceptas nuestros{" "}
               <a
                 href="/terminos-de-uso"
-                className="text-blue-500 hover:underline"
+                className="text-primary hover:underline"
               >
                 términos y condiciones.
               </a>

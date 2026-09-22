@@ -48,14 +48,14 @@ export default function FormContacto() {
 
       <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
         {isSubmitted ? (
-          <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg sm:p-12">
+          <div className="rounded-2xl border border-border-subtle bg-card p-8 text-center shadow-lg sm:p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
               <CheckCircle className="h-8 w-8 text-green-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-foreground">
               Mensaje enviado
             </h2>
-            <p className="mt-3 text-gray-600">
+            <p className="mt-3 text-foreground-muted">
               ¡Gracias por escribirnos! Ya tenemos tu mensaje y te contestamos enseguida.
             </p>
             <button
@@ -63,7 +63,7 @@ export default function FormContacto() {
                 setIsSubmitted(false);
                 setFormData({ nombre: "", email: "", mensaje: "" });
               }}
-              className="mt-8 inline-flex cursor-pointer items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3 text-sm font-medium text-white transition-all hover:from-blue-600 hover:to-blue-700"
+              className="mt-8 inline-flex cursor-pointer items-center justify-center rounded-lg bg-linear-to-r from-primary to-primary-hover px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:from-primary-hover hover:to-primary-active"
             >
               Enviar otro mensaje
             </button>
@@ -71,15 +71,15 @@ export default function FormContacto() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-gray-100 bg-white p-8 shadow-lg sm:p-10"
+            className="rounded-2xl border border-border-subtle bg-card p-8 shadow-lg sm:p-10"
           >
             <div className="space-y-6">
               <div>
                 <label
                   htmlFor="nombre"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground"
                 >
-                  <User className="h-4 w-4 text-blue-500" />
+                  <User className="h-4 w-4 text-primary" />
                   Nombre
                 </label>
                 <input
@@ -90,16 +90,16 @@ export default function FormContacto() {
                   onChange={handleChange}
                   required
                   placeholder="Tu nombre completo"
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-border bg-card-muted px-4 py-3 text-foreground placeholder-foreground-subtle transition-all outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground"
                 >
-                  <Mail className="h-4 w-4 text-blue-500" />
+                  <Mail className="h-4 w-4 text-primary" />
                   Correo electrónico
                 </label>
                 <input
@@ -110,16 +110,16 @@ export default function FormContacto() {
                   onChange={handleChange}
                   required
                   placeholder="ejemplo@correo.com"
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-border bg-card-muted px-4 py-3 text-foreground placeholder-foreground-subtle transition-all outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="mensaje"
-                  className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-900"
+                  className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground"
                 >
-                  <MessageSquare className="h-4 w-4 text-blue-500" />
+                  <MessageSquare className="h-4 w-4 text-primary" />
                   Mensaje
                 </label>
                 <textarea
@@ -130,11 +130,11 @@ export default function FormContacto() {
                   required
                   rows={5}
                   placeholder="¿En qué podemos ayudarte?"
-                  className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-all outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full resize-none rounded-lg border border-border bg-card-muted px-4 py-3 text-foreground placeholder-foreground-subtle transition-all outline-none focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20"
                 />
                 <div className="mt-2 flex justify-end">
                   <span
-                    className={`text-xs font-mono ${formData.mensaje.length >= 450 ? "text-amber-600" : "text-gray-400"}`}
+                    className={`text-xs font-mono ${formData.mensaje.length >= 450 ? "text-amber-600" : "text-foreground-subtle"}`}
                   >
                     {formData.mensaje.length}/500 caracteres
                   </span>
@@ -145,7 +145,7 @@ export default function FormContacto() {
             <button
               type="submit"
               disabled={isLoading}
-              className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-sm font-medium text-white antialiased transition-all hover:from-blue-600 hover:to-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
+              className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-r from-primary to-primary-hover px-6 py-3.5 text-sm font-medium text-primary-foreground antialiased transition-all hover:from-primary-hover hover:to-primary-active disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isLoading ? (
                 <>
@@ -178,11 +178,11 @@ export default function FormContacto() {
               )}
             </button>
 
-            <p className="mt-6 text-center text-xs text-gray-500">
+            <p className="mt-6 text-center text-xs text-foreground/70">
               Al enviar este formulario aceptas nuestra{" "}
               <a
                 href="/politica-de-privacidad"
-                className="text-blue-500 hover:underline"
+                className="text-primary hover:underline"
               >
                 política de privacidad
               </a>

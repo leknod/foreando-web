@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 w-full bg-white antialiased shadow-[0_4px_20px_rgba(59,130,246,0.25)]"
+        className="sticky top-0 z-50 w-full bg-card antialiased shadow-[0_4px_20px_rgba(59,130,246,0.25)]"
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-18">
           <Link href={"/"}>
@@ -40,7 +40,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-base font-medium text-gray-600 transition-colors hover:text-gray-900"
+                className="text-base font-medium text-foreground-muted transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -51,7 +51,7 @@ export default function Header() {
           </div>
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-foreground-secondary transition-colors hover:bg-card-hover md:hidden"
             aria-label="Abrir menú"
           >
             <Menu />

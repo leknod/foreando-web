@@ -18,7 +18,7 @@ export default function PoliticaPrivacidad() {
   return (
     <>
       <Hero title="Política de privacidad" />
-      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
+      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-foreground-secondary">
         <h2>1. Datos que se recogen</h2>
         <p>
           Foreando puede recopilar los siguientes datos personales según la

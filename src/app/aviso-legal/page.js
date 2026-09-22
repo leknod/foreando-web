@@ -17,11 +17,11 @@ export default function AvisoLegal() {
   return (
     <>
       <Hero title="Aviso legal" />
-      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-gray-700">
+      <section className="legal mx-auto max-w-4xl space-y-4 px-4 py-10 text-sm leading-relaxed text-foreground-secondary">
         <h2>1. Objeto y ámbito de aplicación</h2>
         <p>
           El presente aviso legal regula el uso del sitio web Foreando (en
-          adelante, "el Sitio Web"), un directorio de foros y comunidades online
+          adelante, &quot;el Sitio Web&quot;), un directorio de foros y comunidades online
           en español. El acceso y uso del Sitio Web implica la aceptación
           expresa y sin reservas de todas las disposiciones incluidas en este
           aviso legal.

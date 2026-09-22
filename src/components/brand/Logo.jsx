@@ -5,7 +5,7 @@ export default function Logo({
   textSize = "text-xl",
   gap = "gap-3",
 }) {
-  const textClass = on === "light" ? "text-black" : "text-white";
+  const textClass = on === "light" ? "text-foreground" : "text-white";
 
   return (
     <div className={`flex items-center ${gap} ${className}`}>
