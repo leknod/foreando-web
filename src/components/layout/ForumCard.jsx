@@ -3,7 +3,6 @@ import Button from "./Button";
 import ForumIcon from "./ForumIcon";
 import DrBadge from "./DrBadge";
 import { getCategoryColor } from "@/lib/categoryColors";
-import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 export default function ForumCard({ forum, index }) {
   const categoryName =
@@ -13,8 +12,7 @@ export default function ForumCard({ forum, index }) {
   const colors = getCategoryColor(categorySlug);
 
   return (
-    <RevealOnScroll delay={(index ?? 0) * 20}>
-      <article className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 pt-8 shadow-md transition-all duration-300 hover:border-primary-soft-border hover:shadow-lg hover:shadow-blue-500/10">
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 pt-8 shadow-md transition-all duration-300 hover:border-primary-soft-border hover:shadow-lg hover:shadow-blue-500/10">
       <div className="absolute top-0 left-0">
         <div className="text-foreground rounded-br-xl bg-linear-to-r from-badge-rank-from to-badge-rank-to px-3 py-1.5 text-xs font-bold font-mono shadow-sm">
           #{index + 1}
@@ -83,6 +81,5 @@ export default function ForumCard({ forum, index }) {
         </Button>
       </div>
     </article>
-    </RevealOnScroll>
   );
 }

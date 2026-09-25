@@ -122,10 +122,8 @@ export default async function Home() {
         </div>
       </div>
       <div className="mx-auto grid max-w-7xl gap-6 px-4 pt-8 pb-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {topCategories.map((category, index) => (
-          <RevealOnScroll key={category.id} delay={index * 20}>
-            <CategoryCard category={category} />
-          </RevealOnScroll>
+        {topCategories.map((category) => (
+          <CategoryCard key={category.id} category={category} />
         ))}
       </div>
       <div className="flex justify-center pb-18">

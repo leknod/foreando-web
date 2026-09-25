@@ -3,7 +3,6 @@ import Button from "./Button";
 import ForumIcon from "./ForumIcon";
 import DrBadge from "./DrBadge";
 import { getCategoryColor } from "@/lib/categoryColors";
-import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 export default function FeaturedForumCard({ forum, index }) {
   const categoryName =
@@ -13,8 +12,7 @@ export default function FeaturedForumCard({ forum, index }) {
   const colors = getCategoryColor(categorySlug);
 
   return (
-    <RevealOnScroll delay={(index ?? 0) * 20}>
-      <article className="group relative h-full overflow-hidden rounded-2xl border border-primary-soft-border bg-card shadow-lg shadow-blue-500/20 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-blue-500/30">
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-primary-soft-border bg-card shadow-lg shadow-blue-500/20 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-blue-500/30">
       <div className="relative flex items-center justify-center gap-1.5 border-b border-primary-soft-border bg-linear-to-r from-primary-soft via-card to-primary-soft py-2">
         <svg className="h-4 w-4" viewBox="0 0 20 20">
           <defs>
@@ -102,6 +100,5 @@ export default function FeaturedForumCard({ forum, index }) {
         </Button>
       </div>
     </article>
-    </RevealOnScroll>
   );
 }
