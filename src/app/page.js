@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FeaturedSection from "@/components/layout/FeaturedSection";
 import CategoryCard from "@/components/layout/CategoryCard";
+import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import { sql } from "@/lib/db";
 import { Check, TrendingUp, Users, Zap } from "lucide-react";
 
@@ -121,8 +122,10 @@ export default async function Home() {
         </div>
       </div>
       <div className="mx-auto grid max-w-7xl gap-6 px-4 pt-8 pb-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {topCategories.map((category) => (
-          <CategoryCard key={category.id} category={category} />
+        {topCategories.map((category, index) => (
+          <RevealOnScroll key={category.id} delay={index * 20}>
+            <CategoryCard category={category} />
+          </RevealOnScroll>
         ))}
       </div>
       <div className="flex justify-center pb-18">
@@ -169,51 +172,59 @@ export default async function Home() {
           </div>
 
           <div className="mb-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
-                <TrendingUp className="h-7 w-7 text-primary" />
+            <RevealOnScroll delay={0}>
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                  <TrendingUp className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="mb-1 font-semibold text-foreground">
+                  Más visibilidad
+                </h3>
+                <p className="text-sm text-foreground-muted">
+                  Aparece en búsquedas y categorías relevantes
+                </p>
               </div>
-              <h3 className="mb-1 font-semibold text-foreground">
-                Más visibilidad
-              </h3>
-              <p className="text-sm text-foreground-muted">
-                Aparece en búsquedas y categorías relevantes
-              </p>
-            </div>
+            </RevealOnScroll>
 
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
-                <Users className="h-7 w-7 text-primary" />
+            <RevealOnScroll delay={20}>
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                  <Users className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="mb-1 font-semibold text-foreground">
+                  Nuevos usuarios
+                </h3>
+                <p className="text-sm text-foreground-muted">
+                  Atrae miembros activos interesados en tu temática
+                </p>
               </div>
-              <h3 className="mb-1 font-semibold text-foreground">
-                Nuevos usuarios
-              </h3>
-              <p className="text-sm text-foreground-muted">
-                Atrae miembros activos interesados en tu temática
-              </p>
-            </div>
+            </RevealOnScroll>
 
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
-                <Zap className="h-7 w-7 text-primary" />
+            <RevealOnScroll delay={40}>
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                  <Zap className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="mb-1 font-semibold text-foreground">
+                  Rápido y fácil
+                </h3>
+                <p className="text-sm text-foreground-muted">
+                  Proceso de alta simple en menos de 2 minutos
+                </p>
               </div>
-              <h3 className="mb-1 font-semibold text-foreground">
-                Rápido y fácil
-              </h3>
-              <p className="text-sm text-foreground-muted">
-                Proceso de alta simple en menos de 2 minutos
-              </p>
-            </div>
+            </RevealOnScroll>
 
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
-                <Check className="h-7 w-7 text-primary" />
+            <RevealOnScroll delay={60}>
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-md">
+                  <Check className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="mb-1 font-semibold text-foreground">100% Gratis</h3>
+                <p className="text-sm text-foreground-muted">
+                  Listado básico gratuito, sin costes ocultos
+                </p>
               </div>
-              <h3 className="mb-1 font-semibold text-foreground">100% Gratis</h3>
-              <p className="text-sm text-foreground-muted">
-                Listado básico gratuito, sin costes ocultos
-              </p>
-            </div>
+            </RevealOnScroll>
           </div>
 
           <div className="text-center">

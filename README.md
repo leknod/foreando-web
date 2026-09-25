@@ -20,17 +20,20 @@ The project aims to make it easier to find active communities across different t
 
 - A categorized directory of online forums.
 - Individual pages for each forum with detailed information.
-- SEO-friendly structure (sitemap, canonical URLs).
+- SEO-friendly structure and metadata.
 - Submission system for new forums.
+- Serverless Postgres database powered by Neon.
 - Clean and responsive UI.
 - Optimized metadata and accessibility improvements.
+- Smooth scrolling experience powered by Lenis.
 
 ## 🛠️ Built With
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Supabase](https://supabase.com/)
+- [Neon](https://neon.tech/)
 - [Resend](https://resend.com/)
+- [Lenis](https://lenis.dev/)
 - [Vercel](https://vercel.com/)
 
 ## 🚀 Getting Started
@@ -50,7 +53,14 @@ You will need `node.js` and `git` installed globally on your machine.
    npm install
    ```
 
-3. Run the development server:
+3. Copy `.env.example` to `.env.local` and configure the required variables:
+:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. Run the development server:
 
    ```bash
    npm run dev
